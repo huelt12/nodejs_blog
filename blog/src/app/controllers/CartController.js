@@ -3,7 +3,7 @@ const {mongooseToObject} = require('../../util/mongoose');
 
 class CartController {
 
-    index(rep, res){
+    index(req, res){
         res.render('cart');
     }
 

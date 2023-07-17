@@ -3,19 +3,12 @@ const {mongooseToObject} = require('../../util/mongoose');
 
 class DetailController {
 
-    index(rep, res){
+    index(req, res){
         res.render('detail');
     }
 
     // GET /courses/:slug
-    show(req, res, next){
-
-        // Course.findOne({slug: req.params.slug})
-        //     .then(course => {
-        //         res.render('courses/show', {course: mongooseToObject(course)})
-        //     })
-        //     .catch(next); 
-        
+    show(req, res, next){     
         Course.find({})
             .then(courses => {         
                 res.render('detail', {courses: mongooseToObject(course)})

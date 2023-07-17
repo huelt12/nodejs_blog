@@ -11,6 +11,17 @@ class CourseController {
             })
             .catch(next); 
     }
+
+    // [GET]   /course/:_id/add_cart
+
+    add_cart(req, res, next){
+        Course.findById({_id: req.params._id})
+            .then(course => {
+                res.render('courses/add_cart', {course: mongooseToObject(course)})
+            })
+            .catch(next);
+    }
+
 }
 
 module.exports = new CourseController;

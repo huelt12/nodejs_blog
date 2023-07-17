@@ -3,7 +3,7 @@ const {mongooseToObject} = require('../../util/mongoose');
 
 class PromotionController {
 
-    index(rep, res){
+    index(req, res){
         res.render('promotion');
     }
 
