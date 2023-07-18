@@ -4,11 +4,13 @@ const detailRouter = require('./detail');
 const promotionRouter = require('./promotion');
 const checkoutRouter = require('./checkout');
 const cartRouter = require('./cart');
+const heartsRouter = require('./hearts');
 const siteRouter = require('./site');
 
 
 function route(app){
 
+    app.use('/hearts', heartsRouter);
     app.use('/checkout', checkoutRouter);
     app.use('/cart', cartRouter);
     app.use('/promotion', promotionRouter);
