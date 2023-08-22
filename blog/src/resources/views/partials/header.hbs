@@ -1,12 +1,12 @@
 <link rel="stylesheet" href="/blog/src/resources/scss/app.scss">
 
 <div class=" container-fluid">
-        <div class="row bg-secondary py-1 px-xl-5">
-            <div class="col-lg-6 d-none d-lg-block">
+        <div class="row bg-secondary  px-xl-5" style="height: 30px; padding: 0 20px; border-bottom: 1px solid rgb(243, 239, 239);">
+            <div class="col-lg-6 d-none d-lg-block " >
                 <div class="d-inline-flex align-items-center h-100">
-                    <a class="text-body mr-3" href="">Giới thiệu</a>
-                    <a class="text-body mr-3" href="">Lịch sử giao dịch</a>
-                    <a class="text-body mr-3" href="">Kiểm tra đơn hàng</a>
+                    <a class=" text-body mr-3" href="/gioi_thieu_ve_bookshop">GIỚI THIỆU</a>
+                    <a class=" text-body mr-3" href="">LỊCH SỬ GIAO DỊCH</a>
+                    <a class=" text-body mr-3" href="">KIỂM TRA ĐƠN HÀNG</a>
                 </div>
             </div>
             <div class="col-lg-6 text-center text-lg-right">
@@ -18,9 +18,8 @@
                             <button class="dropdown-item" type="button">Đăng ký</button>
                         </div>
                     </div> --}}
-
-                    <div><button class="dropdown-item" type="button">Đăng nhập</button></div>
-                    <button class="dropdown-item" type="button">Đăng ký</button>
+                    <a class="dropdown-item" type="button">ĐĂNG NHÂP</a>
+                    <a class="dropdown-item text-right" type="button">ĐĂNG KÝ</a>
                 </div>
                 <div class="d-inline-flex align-items-center d-block d-lg-none">
                     <a href="" class="btn px-0 ml-2">
@@ -54,7 +53,7 @@
                 </form>
             </div>
             <div class="col-lg-4 col-6 text-right">
-                <p><h5 class="m-0">Liên hệ</h5></p>
+                <p><h5 class="m-0">LIÊN HỆ</h5></p>
                 <h5 class="m-0">+012 345 6789</h5>
             </div>
         </div>
@@ -93,14 +92,15 @@
     </a>
     <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
         <div class="navbar-nav w-100">
-            <div class="nav-item dropdown dropright">
+            {{!-- <div class="nav-item dropdown dropright">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">VĂN HỌC NƯỚC NGOÀI <i class="fa fa-angle-right float-right mt-1"></i></a>
                 <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
                 <a href="" class="dropdown-item">TRUYỆN NGẮN</a>
                 <a href="" class="dropdown-item">THƠ / KỊCH</a>
                 <a href="" class="dropdown-item">HỒI KÝ / PHÊ BÌNH</a>
                 </div>
-            </div>  
+            </div>   --}}
+            <a href="" class="nav-item nav-link">VĂN HỌC NƯỚC NGOÀI</a>
             <a href="" class="nav-item nav-link">TIỂU THUYẾT</a>
             <a href="" class="nav-item nav-link">THIẾU NHI</a>
             <a href="" class="nav-item nav-link">NGÔN TÌNH</a>
@@ -157,14 +157,14 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="/" class=" nav-item nav-link ">Trang chủ</a>
-                            <a href="/promotion" class="nav-item nav-link ">Sách khuyến mãi</a>
-                            <a href="/bookfree/detail" class="nav-item nav-link">Sách miễn phí</a>
+                            <a href="/" class=" nav-item nav-link ">TRANG CHỦ</a>
+                            <a href="/promotion" class="nav-item nav-link ">SÁCH KHUYẾN MÃI</a>
+                            <a href="/bookfree/detail" class="nav-item nav-link">ĐỌC SÁCH TRỰC TUYẾN</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Tôi <i class="fa fa-angle-down mt-1"></i></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">TÔI <i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                    <a href="/cart" class="dropdown-item">Giỏ hàng</a>
-                                    <a href="/checkout" class="dropdown-item">Thông tin thanh toán</a>
+                                    <a href="/cart" class="dropdown-item">GIỎ HÀNG</a>
+                                    <a href="/checkout" class="dropdown-item">THÔNG TIN THANH TOÁN</a>
                                 </div>
                             </div>
                             {{!-- <a href="contact.html" class="nav-item nav-link">Contact</a> --}}

@@ -8,8 +8,7 @@ class CartController {
     }
 
     // GET /courses/:slug
-    show(req, res, next){
-        
+    show(req, res, next){      
         Course.find({})
             .then(courses => {         
                 res.render('cart', {courses: mongooseToObject(course)})
@@ -17,6 +16,13 @@ class CartController {
                 .catch(next);           
     }
     
+    checkout(req, res, next){
+        Course.find({})
+            .then(courses => {         
+                res.render('checkout', {courses: mongooseToObject(course)})
+            })
+                .catch(next); 
+    }
 }
 
 module.exports = new CartController;

@@ -1,76 +1,94 @@
 <!-- Shop deatil Start -->
+
     <div class="container-fluid pb-5">
-        <div class="row px-xl-5">
-            <div class="col-lg-5 mb-30">
-                <div id="product-carousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner bg-light">
-                        <div class="carousel-item active">
-                            <img class="w-100 h-100" src={{course.image}} alt="Image">
+        <div class="row px-xl-1">
+            <div class="col-lg-5 mb-30 ">
+                <div class="h-100 bg-light p-100">
+                    <div id="product-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner bg-light pt-3 ">
+                            <div class="carousel-item active">
+                                <img class="w-100 h-100" src={{course.image}} alt="Image">
+                            </div>
+                            {{!-- <div class="carousel-item ">
+                                <img class="w-100 h-100" src="/public/img/product-2.jpg" alt="Image">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="w-100 h-100" src="/public/img/product-3.jpg" alt="Image">
+                            </div>
+                            <div class="carousel-item ">
+                                <img class="w-100 h-100" src="/public/img/product-4.jpg" alt="Image">
+                            </div> --}}
                         </div>
-                        <div class="carousel-item ">
-                            <img class="w-100 h-100" src="/public/img/product-2.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="w-100 h-100" src="/public/img/product-3.jpg" alt="Image">
-                        </div>
-                        <div class="carousel-item ">
-                            <img class="w-100 h-100" src="/public/img/product-4.jpg" alt="Image">
-                        </div>
+                        {{!-- <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
+                            <i class="fa fa-2x fa-angle-left text-dark"></i>
+                        </a>
+                        <a class="carousel-control-next" href="#product-carousel" data-slide="next">
+                            <i class="fa fa-2x fa-angle-right text-dark"></i>
+                        </a> --}}
                     </div>
-                    <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
-                        <i class="fa fa-2x fa-angle-left text-dark"></i>
-                    </a>
-                    <a class="carousel-control-next" href="#product-carousel" data-slide="next">
-                        <i class="fa fa-2x fa-angle-right text-dark"></i>
-                    </a>
                 </div>
             </div>
 
             <div class="col-lg-7 h-auto mb-30">
-                <div class="h-100 bg-light p-30">
-                    <h1><a href="/sach/44720/thu-gui-nha-tieu-thuyet-tre">{{course.name}}</a></h1>
-                    <div class="d-flex mb-3">
-                        <div class="text-primary mr-2">
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star-half-alt"></small>
-                            <small class="far fa-star"></small>
-                        </div>
-                        <small class="pt-1">(99 Reviews)</small>                  
-                        <div data-view-id="pdp_quantity_sold" class=" px-2 styles__StyledQuantitySold-sc-1u1gph7-2 exWbxD">|  Đã bán 1948</div>                                       
-                    </div>
+                <div class="h-100 bg-light p-100">
+                    <h2 class="container pt-3 "><a href="/sach/44720/thu-gui-nha-tieu-thuyet-tre">{{course.name}}</a></h2>
                     
-                    <div class="col-lg-7">
-                            <div class="info">      
-                                <div class="intro clearfix">
-                                    <div class="attributes">
-                                                <li class="dataattr">
-                                                    <span>Mã sản phẩm: </span>
-                                                    <a href="#">{{course._id}}</a>
-                                                </li>
-                                                <li class="dataattr">
-                                                    <span>Tác giả: </span>
-                                                    <a href="/tac-gia/138/mario-vargas-llosa">{{course.author}}</a>                                                                  
-                                                </li>
-                                                <li class="dataattr">
-                                                        <span>Dịch giả: </span>
-                                                        <a href="/nhom-dich/380/ngan-xuyen">Ngân Xuyên</a>
-                                                </li>
-                                                <li class="dataattr">
-                                                        <span>Nhà xuất bản: </span>
-                                                        <a href="/nha-xuat-ban/1/hoi-nha-van">Hội nhà văn</a>
-                                                </li>                       
-                                                <li>Số trang: 161</li>
-                                                <li>Kích thước: 14 x 20.5cm</li>
-                                                <li>Ngày phát hành: 22-06-2023</li>
-                                        <p class="oldprice"><div class="sbuttons"><h3 class="font-weight-semi-bold mb-4">$150.00</h3></div></p>
-                                    </div>
-                                </div>              
-                        </div>                       
-                    </div>
+                    <div class="container">
+                        <div class="row px-xl-1 pb-1 pt-3">
+                            <div class="col-lg-12">
+                                    <div class="info">      
+                                        <div class="intro clearfix">
+                                            <div class="attributes ">
+                                                        <li class="dataattr">
+                                                            <span>Mã sản phẩm: </span>
+                                                            <a href="/courses/id">{{course._id}}</a>
+                                                        </li>
+                                                        <li class="dataattr">
+                                                            <span>Tác giả: </span>
+                                                            <a href="/tac-gia/138/mario-vargas-llosa">{{course.author}}</a>                                                                  
+                                                        </li>
+                                                        {{!-- <li class="dataattr">
+                                                                <span>Dịch giả: </span>
+                                                                <a href="/nhom-dich/380/ngan-xuyen">{{course.dich_gia}}</a>
+                                                        </li> --}}
+                                                        <li class="dataattr">
+                                                                <span>Nhà xuất bản: </span>
+                                                                <a href="/nha-xuat-ban/1/hoi-nha-van">{{course.nha_sx}}</a>
+                                                        </li>  
+                                                        <li class="dataattr">
+                                                                <span>Số trang: </span>
+                                                                <a href="/tac-gia/138/mario-vargas-llosa">{{course.so_trang}}</a>                                                                  
+                                                        </li>  
+                                                        <li class="dataattr">
+                                                                <span>Kích thước: </span>
+                                                                <a href="/tac-gia/138/mario-vargas-llosa">{{course.kich_thuoc}}</a>                                                                  
+                                                        </li>
+                                                        
+                                                <div class=" container d-flex align-items-center mb-2 pt-2 ">
+                                                    <p class="oldprice"><div class="sbuttons"><h3 class="font-weight-semi-bold mb-2">{{course.gia}} đ</h3></div></p>
+                                                    <div class="d-flex align-items-center mb-2 mt-2 px-4  ">                                                        
+                                                        <a href="/courses/{{course._id}}/add_cart" class= "btn btn-primary">Mua ngay</a>
+                                                    </div>
+                                                </div>
 
-                    <div class="d-flex align-items-center mb-4 pt-2 ">
+                                                <div class="d-flex mb-3">
+                                                    <div class="text-primary mr-2">
+                                                        <small class="fas fa-star"></small>
+                                                        <small class="fas fa-star"></small>
+                                                        <small class="fas fa-star"></small>
+                                                        <small class="fas fa-star-half-alt"></small>
+                                                        <small class="far fa-star"></small>
+                                                    </div>
+                                                    <small class="pt-1">(99 Reviews)</small>                  
+                                                    <div data-view-id="pdp_quantity_sold" class=" px-2 styles__StyledQuantitySold-sc-1u1gph7-2 exWbxD">|  Đã bán 1948</div>                                       
+                                                </div>
+                                            </div>
+                                        </div>              
+                                </div>                       
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" container d-flex align-items-center mb-4 pt-1 ">
                         <div class="input-group quantity mr-3" style="width: 130px;">
                             <div class="input-group-btn">
                                 <button class="btn btn-primary btn-minus">
@@ -86,28 +104,28 @@
                         </div>
                         <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Thêm vào giỏ hàng</button>
                     </div>
-
-                    <div class="d-flex fVzmdH _9NlEB8">
-                        <div class="vKtAFa" style="width: 130px;">
+                    
+                    <div class=" container d-flex fVzmdH _9NlEB8">
+                        <div class="vKtAFa" style="width: 200px;">
                             <div class="shopee-drawer Dp0x1X" id="pc-drawer-id-4" tabindex="0">
                                 <div class="_5QD9Iy flex items-center">
-                                    <img class="NmTIFU" style="width: 20px; height: 20px;" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/6c502a2641457578b0d5f5153b53dd5d.png">
+                                    <img class="NmTIFU" style="width: 25px; height: 25px;" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/6c502a2641457578b0d5f5153b53dd5d.png">
                                         <div class="mnQqkL">7 ngày miễn phí trả hàng</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="vKtAFa">
+                        <div class="vKtAFa" style="width: 200px;">
                             <div class="shopee-drawer Dp0x1X" id="pc-drawer-id-5" tabindex="0">
                                 <div class="_5QD9Iy flex items-center">
-                                    <img class="NmTIFU" style="width: 20px; height: 20px;" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/511aca04cc3ba9234ab0e4fcf20768a2.png">
+                                    <img class="NmTIFU" style="width: 25px; height: 25px;" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/511aca04cc3ba9234ab0e4fcf20768a2.png">
                                         <div class="mnQqkL">Hàng chính hãng 100%</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="vKtAFa">
+                        <div class="vKtAFa"style="width: 200px;">
                             <div class="shopee-drawer Dp0x1X" id="pc-drawer-id-6" tabindex="0">
                                 <div class="_5QD9Iy flex items-center">
-                                    <img class="NmTIFU" style="width: 20px; height: 20px;" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/16ead7e0a68c3cff9f32910e4be08122.png">
+                                    <img class="NmTIFU" style="width: 25px; height: 25px;" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/16ead7e0a68c3cff9f32910e4be08122.png">
                                         <div class="mnQqkL">Miễn phí vận chuyển</div>
                                 </div>
                             </div>
@@ -118,7 +136,7 @@
         </div>
 
 
-        <div class="row px-xl-5">
+        <div class="row px-xl-1">
             <div class="col">
                 <div class="bg-light p-30">
                     <div class="nav nav-tabs mb-4">
@@ -192,9 +210,9 @@
 
 
     <!-- Products Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-1">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Sách Cùng Tác Giả</span></h2>
-        <div class="row px-xl-5">
+        <div class="row px-xl-1">
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <div class="product-item bg-light mb-4">
                     <div class="product-img position-relative overflow-hidden">

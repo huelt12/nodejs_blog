@@ -20,9 +20,12 @@
   },
   "homepage": "https://github.com/huelt12/nodejs_blog#readme",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "express": "^4.18.2",
     "express-handlebars": "^7.0.7",
-    "mongoose": "^7.3.1"
+    "gridfs-stream": "^1.1.1",
+    "mongoose": "^7.4.3",
+    "mongoose-paginate-v2": "^1.7.31"
   },
   "devDependencies": {
     "morgan": "^1.10.0",

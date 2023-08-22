@@ -15,7 +15,7 @@ const port = 3000;
 
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
-app.use(morgan('combined'));
+// app.use(morgan('combined'));
 app.use(express.urlencoded({
     extended:true
 }));

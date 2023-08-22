@@ -3,6 +3,7 @@ const router = express.Router();
 
 const cartController = require('../app/controllers/CartController');
 
+router.get('/checkout', cartController.checkout);
 router.use('/slug', cartController.show);
 router.use('/', cartController.index);
 

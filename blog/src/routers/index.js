@@ -14,6 +14,8 @@ function route(app){
     app.use('/checkout', checkoutRouter);
     app.use('/cart', cartRouter);
     app.use('/promotion', promotionRouter);
+    // Chị dùng sai đường dẫn, ở đây là /bookfree/detail mà
+    
     app.use('/bookfree/detail', detailRouter);
     app.use('/news', newsRouter);
     app.use('/courses', coursesRouter);
