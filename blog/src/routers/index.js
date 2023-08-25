@@ -6,10 +6,14 @@ const checkoutRouter = require('./checkout');
 const cartRouter = require('./cart');
 const heartsRouter = require('./hearts');
 const siteRouter = require('./site');
+const authRoute = require('./auth');
+const forgetpassRouter = require('./forgetpass');
 
 
 function route(app){
 
+    app.use('/auth/forgetpass', forgetpassRouter);
+    app.use('/auth', authRoute);
     app.use('/hearts', heartsRouter);
     app.use('/checkout', checkoutRouter);
     app.use('/cart', cartRouter);
@@ -20,7 +24,7 @@ function route(app){
     app.use('/news', newsRouter);
     app.use('/courses', coursesRouter);
     app.use('/', siteRouter); 
-    
 }
 
 module.exports = route;
+

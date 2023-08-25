@@ -11,15 +11,13 @@
             </div>
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
-                    {{!-- <div class="btn-group ">
-                        <button type="button" class="btn btn-sm btn-light" >Đăng ký</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button">Đăng nhập</button>
-                            <button class="dropdown-item" type="button">Đăng ký</button>
-                        </div>
-                    </div> --}}
-                    <a class="dropdown-item" type="button">ĐĂNG NHÂP</a>
-                    <a class="dropdown-item text-right" type="button">ĐĂNG KÝ</a>
+                    {{#if isLoggedIn}}
+                        <!-- Không hiển thị gì cho người dùng đã đăng nhập -->
+                    {{else}}
+                        <a class="dropdown-item" type="button" href="/auth/login">ĐĂNG NHÂP</a>
+                        <a class="dropdown-item text-right " type="button" href="/auth/register">ĐĂNG KÝ</a>
+                    {{/if}}
+                    
                 </div>
                 <div class="d-inline-flex align-items-center d-block d-lg-none">
                     <a href="" class="btn px-0 ml-2">

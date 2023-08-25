@@ -1,0 +1,126 @@
+<style>
+    body {
+        background-image: url("https://png.pngtree.com/thumb_back/fw800/back_our/20190617/ourmid/pngtree-bird-book-tree-small-fresh-poster-banner-image_125954.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center; /* Đặt vị trí trung tâm của hình ảnh */
+        width: 1349px; /* Đặt chiều rộng cố định của trang */
+        height: 300px; /* Đặt chiều cao cố định của trang */
+        margin: 0; /* Remove default margin for body */
+        height: 100vh; /* Set body height to 100% of viewport height */
+        display: flex; /* Use flexbox to center content */
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        
+    }
+    .card {
+        max-width: 400px; /* Đặt kích thước tối đa của khung đăng nhập */
+        margin: 0 auto; /* Căn giữa khung đăng nhập trên màn hình */
+        background-color: white; /* Set a semi-transparent background */
+        padding: 20px; /* Add some padding to make it stand out */
+        border-radius: 10px; /* Add rounded corners for a card-like appearance */
+        border: 2px solid #6d6767; /* Thay đổi màu sắc và độ dày của viền */
+    }
+    {{!-- .page-wrapper,
+    .card {
+        background: none; /* Remove background for login elements */
+    } --}}
+    .page-wrapper {
+        position: relative; /* Set relative position for login wrapper */
+        z-index: 1; /* Bring login wrapper to the front */
+    }
+    /* Thêm viền cho các trường email và mật khẩu */
+    .form-group input[type="email"],
+    .form-group input[type="password"] {
+        border: 1px solid #555; /* Đặt viền mỏng cho trường input */
+        padding: 8px; /* Tăng padding để trường input trông tốt hơn */
+        border-radius: 4px; /* Làm cho góc trường input trở nên tròn */
+        width: 100%; /* Đảm bảo trường input chiếm hết chiều rộng của cha */
+    }
+
+</style>
+
+{{message}} 
+<div class="container">
+    <div class="page-wrapper bg-gra-02 p-t-30 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 class="title">Đăng nhập</h2>
+                    <form method="POST" action="/auth/login">
+                        <div class="mb-3 form-group">
+                            <label for="email1" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email"
+                                aria-describedby="emailHelp" name="user_email" required="required">
+                            <div class="error-message" id="emailError" style="color: red; font-style: italic;font-size: smaller;"></div>
+                        </div>
+                        <div class="mb-3 form-group pass">
+                            <label for="password" class="form-label" >Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                                required="required">
+                            <div class="error-message" id="passwordError" style="color: red; font-style: italic;font-size: smaller;"></div>
+                            <span class="show-btn eye"><i id="pass_eye" class="fas fa-eye"></i></span>
+
+                            <div id="emailHelp" class="form-text ">
+                                <a href="/auth/forgetpass" class="">Quên mật khẩu</a>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="loginButton" disabled>Đăng nhập</button>
+                    </form>
+                    {{#if error}}
+                    <p class="error-message" style="color: red;font-style: italic; ">{{error}}</p>
+                    {{/if}}
+
+                    <p><em>Don't have an account?  </em><a href="/auth/register" style="color: blue; text-decoration: underline;"><em> Register here</em></a></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const loginButton = document.getElementById('loginButton');
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+
+    emailInput.addEventListener('input', updateLoginButtonState);
+    passwordInput.addEventListener('input', updateLoginButtonState);
+    emailInput.addEventListener('input', validateEmailFormat); // Thêm sự kiện kiểm tra định dạng email
+    passwordInput.addEventListener('input', validatePasswordLength); // Thêm sự kiện kiểm tra độ dài password
+
+
+    function updateLoginButtonState() {
+        if (emailInput.value && passwordInput.value) {
+        loginButton.disabled = false;
+        } else {
+        loginButton.disabled = true;
+        }
+    }
+    function validateEmailFormat() {
+        const emailValue = emailInput.value;
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Kiểm tra định dạng email
+
+        if (!emailPattern.test(emailValue)) {
+            emailError.textContent = 'Định dạng email không hợp lệ';
+        } else {
+            emailError.textContent = '';
+        }
+    }
+    function validatePasswordLength() {
+        const passwordLength = passwordInput.value.length;
+
+        if (passwordLength < 5 || passwordLength > 255) {
+            passwordError.textContent = 'Giá trị hợp lệ trong khoảng từ 5-255 ký tự';
+        } else {
+            passwordError.textContent = '';
+        }
+    }
+   
+</script>

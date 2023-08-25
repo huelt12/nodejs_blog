@@ -5,6 +5,9 @@ const { engine } = require('express-handlebars');
 
 const route = require('./routers');
 const db = require('./config/db');
+const session = require('express-session');
+
+
 
 // Connect to DB
 db.connect();
@@ -26,6 +29,13 @@ app.engine('hbs', engine({
 }));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources', 'views'));
+
+
+app.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: true
+  }));
 
 //route init
 route(app);

@@ -113,15 +113,6 @@
                     <div class="text-center py-1">         
                         <div class="card-body">
                             <a class="h6 text-decoration-none text-truncate" href="/courses/{{this.slug}}">{{this.name}}</a>                      
-                            {{!-- <script>
-                                // Định nghĩa helper breaklines
-                                Handlebars.registerHelper('breaklines', function(text) {
-                                text = Handlebars.Utils.escapeExpression(text);
-                                text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
-                                return new Handlebars.SafeString(text);
-                                });
-                            </script>
-                            <a class="h6 text-decoration-none" href="/courses/{{this.slug}}">{{{breaklines this.name}}}</a> --}}
                             <div class="d-flex align-items-center justify-content-center mt-2">
                                 <p class="card-text">{{this.gia}} đ</p>                        
                             </div>       

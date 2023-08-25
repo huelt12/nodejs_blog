@@ -1,0 +1,228 @@
+
+<div class="container">
+    <div class=" register-form-wrapper">
+        <div class="page-wrapper bg-gra-02 p-t-30 p-b-100 font-poppins">
+            <div class="card-body card card-4 wrapper wrapper--w680">
+                <div class="register-form-header">
+                    <h2 class="register-form-title">Đăng ký tài khoản</h2>
+                </div>
+                <div class="register-form-content">
+                    <form method="POST" action="/auth/register">
+                        <div class="form-group">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+                            <div class="error-message" id="usernameError" style="color: red; font-style: italic;font-size: smaller;"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                            <div class="error-message" id="emailError" style="color: red; font-style: italic;font-size: smaller;"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>  
+                            <div class="error-message" id="passwordError" style="color: red; font-style: italic;font-size: smaller;"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="registerButton" >Đăng ký</button>
+                    </form>
+                    {{#if error}}
+                    <p class="error-message">{{error}}</p>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{!-- disable --}}
+<script>
+    const registerButton = document.getElementById("registerButton");
+    const registrationForm = document.getElementById("registrationForm");
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const usernameError = document.getElementById("usernameError");
+    const passwordError = document.getElementById("passwordError");
+    const emailInput = document.getElementById("email");
+    const emailError = document.getElementById("emailError");
+
+    usernameInput.addEventListener("input", () => {
+        const usernameLength = usernameInput.value.length;
+
+        if (usernameLength < 5 || usernameLength > 255) {
+            usernameError.textContent = "Giá trị hợp lệ trong khoảng từ 5-255 ký tự";
+        } else {
+            usernameError.textContent = "";
+        }
+        updateRegisterButtonState();
+    });
+
+    passwordInput.addEventListener("input", () => {
+        const passwordLength = passwordInput.value.length;
+
+        if (passwordLength < 5 || passwordLength > 255) {
+            passwordError.textContent = "Giá trị hợp lệ trong khoảng từ 5-255 ký tự";
+            
+        } else {
+            passwordError.textContent = "";
+            }
+        updateRegisterButtonState();
+    });
+
+    emailInput.addEventListener("input", () => {
+        const emailValue = emailInput.value;
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailPattern.test(emailValue)) {
+            emailError.textContent = "Định dạng email không hợp lệ";
+            registerButton.setAttribute("disabled", "disabled");
+        } else {
+            emailError.textContent = "";
+            updateRegisterButtonState();
+        }
+    });
+
+    function updateRegisterButtonState() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const email = document.getElementById("email").value;
+
+        const usernameLength = usernameInput.value.length;
+        const passwordLength = passwordInput.value.length;
+        const emailValue = emailInput.value;
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (
+            (usernameLength >= 5 && usernameLength <= 255) &&
+            (passwordLength >= 5 && passwordLength <= 255) &&
+            emailPattern.test(emailValue)
+        ) {
+            registerButton.removeAttribute("disabled");
+        } else {
+            registerButton.setAttribute("disabled", "disabled");
+        }
+
+        {{!-- registrationForm.addEventListener("input", () => {
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            if (username && email && password) {
+                registerButton.removeAttribute("disabled");
+            } else {
+                registerButton.setAttribute("disabled", "disabled");
+            }
+        }); --}}
+
+    }
+</script>
+
+
+
+<style>
+    body {
+        background-image: url("https://png.pngtree.com/thumb_back/fw800/back_our/20190617/ourmid/pngtree-bird-book-tree-small-fresh-poster-banner-image_125954.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center; /* Đặt vị trí trung tâm của hình ảnh */
+        width: 1349px; /* Đặt chiều rộng cố định của trang */
+        height: 300px; /* Đặt chiều cao cố định của trang */
+        margin: 0; /* Remove default margin for body */
+        height: 100vh; /* Set body height to 100% of viewport height */
+        display: flex; /* Use flexbox to center content */
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        
+    }
+    .card {
+        max-width: 400px; /* Đặt kích thước tối đa của khung đăng nhập */
+        margin: 0 auto; /* Căn giữa khung đăng nhập trên màn hình */
+        background-color: white; /* Set a semi-transparent background */
+        padding: 20px; /* Add some padding to make it stand out */
+        border-radius: 10px; /* Add rounded corners for a card-like appearance */
+        border: 2px solid #6d6767 /* Thay đổi màu sắc và độ dày của viền */
+    }
+    .page-wrapper {
+        position: relative; /* Set relative position for login wrapper */
+        z-index: 1; /* Bring login wrapper to the front */
+    }
+    /* Thêm viền cho các trường email và mật khẩu */
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="password"] {
+        border: 1px solid #555; /* Đặt viền mỏng cho trường input */
+        padding: 8px; /* Tăng padding để trường input trông tốt hơn */
+        border-radius: 4px; /* Làm cho góc trường input trở nên tròn */
+        width: 100%; /* Đảm bảo trường input chiếm hết chiều rộng của cha */
+    }
+
+</style>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .register-form-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .card-body {
+        background-color: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 20px;
+        width: 400px;
+    }
+
+    .register-form-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-label {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .error-message {
+        color: red;
+        margin-top: 10px;
+    }
+</style>
