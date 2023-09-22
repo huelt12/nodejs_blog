@@ -1,0 +1,302 @@
+<!-- Shop deatil Start -->
+
+    <div class="container-fluid pb-5">
+        <div class="row px-xl-1">
+            <div class="col-lg-5 mb-30 ">
+                <div class="h-100 bg-light p-100">
+                    <div id="product-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner bg-light pt-3 ">
+                            <div class="carousel-item active">
+                                <img class="w-100 h-100" src={{promotion.image}} alt="Image">
+                            </div>
+                            {{!-- <div class="carousel-item ">
+                                <img class="w-100 h-100" src="/public/img/product-2.jpg" alt="Image">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="w-100 h-100" src="/public/img/product-3.jpg" alt="Image">
+                            </div>
+                            <div class="carousel-item ">
+                                <img class="w-100 h-100" src="/public/img/product-4.jpg" alt="Image">
+                            </div> --}}
+                        </div>
+                        {{!-- <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
+                            <i class="fa fa-2x fa-angle-left text-dark"></i>
+                        </a>
+                        <a class="carousel-control-next" href="#product-carousel" data-slide="next">
+                            <i class="fa fa-2x fa-angle-right text-dark"></i>
+                        </a> --}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7 h-auto mb-30">
+                <div class="h-100 bg-light p-100">
+                    <h3 class="container pt-3 ">{{promotion.name}}</h3>
+                    
+                    <div class="container">
+                        <div class="row px-xl-1 pb-1 pt-3">
+                            <div class="col-lg-12">
+                                    <div class="info">      
+                                        <div class="intro clearfix">
+                                            <div class="attributes ">
+                                                        <li class="dataattr">
+                                                            <span>Mã sản phẩm: </span>
+                                                            <th href="/promotion/id">{{promotion._id}}</th>
+                                                        </li>
+                                                        <li class="dataattr">
+                                                            <span>Tác giả: </span>
+                                                            <th href="/tac-gia/138/mario-vargas-llosa">{{promotion.author}}</th>                                                                  
+                                                        </li>
+                                                        {{!-- <li class="dataattr">
+                                                                <span>Dịch giả: </span>
+                                                                <a href="/nhom-dich/380/ngan-xuyen">{{promotion.dich_gia}}</a>
+                                                        </li> --}}
+                                                        <li class="dataattr">
+                                                                <span>Nhà xuất bản: </span>
+                                                                <th href="/nha-xuat-ban/1/hoi-nha-van">{{promotion.nha_sx}}</th>
+                                                        </li>  
+                                                        <li class="dataattr">
+                                                                <span>Số trang: </span>
+                                                                <th href="/tac-gia/138/mario-vargas-llosa">{{promotion.so_trang}}</th>                                                                  
+                                                        </li>  
+                                                        <li class="dataattr">
+                                                                <span>Kích thước: </span>
+                                                                <th href="/tac-gia/138/mario-vargas-llosa">{{promotion.kich_thuoc}}</th>                                                                  
+                                                        </li>
+                                                        
+                                                <div class=" container d-flex align-items-center mb-2 pt-2 ">
+                                                    <p class="oldprice"><div class="sbuttons"><h3 class="font-weight-semi-bold mb-2">{{promotion.gia}} đ</h3></div></p>
+                                                    <div class="d-flex align-items-center mb-2 mt-2 px-4  ">                                                        
+                                                        <a href="/promotions/{{promotion._id}}/add_cart" class= "btn btn-primary">Mua ngay</a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="d-flex mb-3">
+                                                    <div class="text-primary mr-2">
+                                                        <small class="fas fa-star"></small>
+                                                        <small class="fas fa-star"></small>
+                                                        <small class="fas fa-star"></small>
+                                                        <small class="fas fa-star-half-alt"></small>
+                                                        <small class="far fa-star"></small>
+                                                    </div>
+                                                    <small class="pt-1">(99 Reviews)</small>                  
+                                                    <div data-view-id="pdp_quantity_sold" class=" px-2 styles__StyledQuantitySold-sc-1u1gph7-2 exWbxD">|  Đã bán 1948</div>                                       
+                                                </div>
+                                            </div>
+                                        </div>              
+                                </div>                       
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" container d-flex align-items-center mb-4 pt-1 ">
+                        <div class="input-group quantity mr-3" style="width: 130px;">
+                            <div class="input-group-btn">
+                                <button class="btn btn-primary btn-minus">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                            <input type="text" class="form-control bg-secondary border-0 text-center" value="1">
+                            <div class="input-group-btn">
+                                <button class="btn btn-primary btn-plus">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Thêm vào giỏ hàng</button>
+                    </div>
+                    
+                    <div class=" container d-flex fVzmdH _9NlEB8">
+                        <div class="vKtAFa" style="width: 200px;">
+                            <div class="shopee-drawer Dp0x1X" id="pc-drawer-id-4" tabindex="0">
+                                <div class="_5QD9Iy flex items-center">
+                                    <img class="NmTIFU" style="width: 25px; height: 25px;" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/6c502a2641457578b0d5f5153b53dd5d.png">
+                                        <div class="mnQqkL">7 ngày miễn phí trả hàng</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vKtAFa" style="width: 200px;">
+                            <div class="shopee-drawer Dp0x1X" id="pc-drawer-id-5" tabindex="0">
+                                <div class="_5QD9Iy flex items-center">
+                                    <img class="NmTIFU" style="width: 25px; height: 25px;" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/511aca04cc3ba9234ab0e4fcf20768a2.png">
+                                        <div class="mnQqkL">Hàng chính hãng 100%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vKtAFa"style="width: 200px;">
+                            <div class="shopee-drawer Dp0x1X" id="pc-drawer-id-6" tabindex="0">
+                                <div class="_5QD9Iy flex items-center">
+                                    <img class="NmTIFU" style="width: 25px; height: 25px;" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/16ead7e0a68c3cff9f32910e4be08122.png">
+                                        <div class="mnQqkL">Miễn phí vận chuyển</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row px-xl-1">
+            <div class="col">
+                <div class="bg-light p-30">
+                    <div class="nav nav-tabs mb-4">
+                        <a class="nav-item nav-link text-dark active" data-toggle="tab" href="#tab-pane-1">Giới thiệu sách</a>
+                        {{!-- <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-2">Information</a> --}}
+                        <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-3">Đánh giá</a>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="tab-pane-1">
+                            {{!-- <h4 class="mb-3">Product Description</h4> --}}
+                            <p>{{promotion.description}}</p>
+                        </div>
+                        <div class="tab-pane fade" id="tab-pane-3">
+                            <div class="row ">
+                                <div class=" col-md-6" id="review-container">
+                                    <h4 class="mb-4">Các đánh giá cho "{{promotion.name}}"</h4>
+                                    <div class="media mb-4">
+                                        <img src="/public/img/image2.jpg" alt="Image" class="avatar-img img-fluid mr-3 mt-1" style="width: 45px;">
+                                        <div class="media-body">
+                                            <h6>Bảo Uyên<small> - <i>01 Jan 2022</i></small></h6>
+                                            <div class="text-primary mb-2">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>                                          
+                                            </div>
+                                            <p>Sách đẹp lắm, lần đầu đặt shop mà sp ưng v lần sau sẽ ủng hộ. Đóng gói cẩn thận, giao hàng trong ngày nhanh chóng.</p>
+                                        </div>
+                                    </div>
+                                    <div class="media mb-4">
+                                        <img src="/public/img/image1.jpg" alt="Image" class="avatar-img img-fluid mr-3 mt-1" style="width: 45px;">
+                                        <div class="media-body">
+                                            <h6>Thanh Hải<small> - <i>06 August 2022</i></small></h6>
+                                            <div class="text-primary mb-2">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>                                          
+                                            </div>
+                                            <p>Một cuốn sách hay đáng để đọc và ý nghĩa dành cho các bạn trẻ .</p>
+                                            <p> Đóng gói cẩn thận, giao hàng hơi lâu, lần sau vẫn sẽ ủng hộ shop.</p>
+                                        </div>
+                                    </div>
+                                    <div class="media mb-4">
+                                        <img src="/public/img/image3.jpg" alt="Image" class="avatar-img img-fluid mr-3 mt-1" style="width: 45px;">
+                                        <div class="media-body">
+                                            <h6>Lan Hương<small> - <i>15 Dec 2021</i></small></h6>
+                                            <div class="text-primary mb-2">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>                                          
+                                            </div>
+                                            <p>Bìa dày chữ nổi đẹp, sách hay nữa có kèm bookmark giấy dày rất ưng 👍👍 nên mua</p>
+                                            <p>Mình thấy review hay nên mua đọc thử xem sao,trên tiktok hay giới thiệu,giá cũng ko quá mắc</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div id="review-success" class="d-none">
+                                    <p class="text-success">Đánh giá của bạn đã được gửi thành công!</p>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h4 class="mb-4">Để lại đánh giá</h4>                                   
+
+                                    <div class="d-flex my-3">
+                                        <p class="mb-0 mr-2">Chất lượng sản phẩm :</p>
+                                        <div class="rating-stars">
+                                            <i class="star far fa-star" data-rating="1"></i>
+                                            <i class="star far fa-star" data-rating="2"></i>
+                                            <i class="star far fa-star" data-rating="3"></i>
+                                            <i class="star far fa-star" data-rating="4"></i>
+                                            <i class="star far fa-star" data-rating="5"></i>
+                                            <input type="hidden" id="rating-input" name="rating" value="0">
+                                        </div>
+                                    </div>
+                                    <script>
+                                        const stars = document.querySelectorAll('.star');
+                                        const ratingInput = document.getElementById('rating-input');
+
+                                        stars.forEach(star => {
+                                            star.addEventListener('click', function() {
+                                                const rating = parseInt(this.getAttribute('data-rating'));
+                                                ratingInput.value = rating;
+                                                updateStars(rating);
+                                            });
+                                        });
+
+                                        function updateStars(selectedRating) {
+                                            stars.forEach(star => {
+                                                const rating = parseInt(star.getAttribute('data-rating'));
+                                                if (rating <= selectedRating) {
+                                                    star.classList.remove('far');
+                                                    star.classList.add('fas');
+                                                } else {
+                                                    star.classList.remove('fas');
+                                                    star.classList.add('far');
+                                                }
+                                            });
+                                        }
+
+                                    </script>
+
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="message">Đánh giá của bạn </label>
+                                            <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                                        </div>
+                                        {{!-- <div class="form-group">
+                                            <label for="name">Tên của bạn </label>
+                                            <input type="text" class="form-control" id="name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email"> Email của bạn </label>
+                                            <input type="email" class="form-control" id="email">
+                                        </div> --}}
+                                        <div class="form-group mb-0">
+                                            <input type="submit" value="Gửi đánh giá" class="btn btn-primary px-3">
+                                        </div>
+                                    </form>
+                                    <script>
+                                        const reviewForm = document.querySelector('#review-form');
+                                        const reviewContainer = document.querySelector('#review-container');
+
+                                        reviewForm.addEventListener('submit', async (e) => {
+                                            e.preventDefault();
+                                            const formData = new FormData(reviewForm);
+                                            const response = await fetch('/review', {
+                                                method: 'POST',
+                                                body: formData,
+                                            });
+                                            const data = await response.json();
+
+                                            if (data.success) {
+                                                const newReview = data.review;
+                                                const reviewElement = document.createElement('div');
+                                                reviewElement.innerHTML = `
+                                                    <h3>Đánh giá mới:</h3>
+                                                    <p>Rating: ${newReview.rating}</p>
+                                                    <p>Message: ${newReview.message}</p>
+                                                `;
+                                                reviewContainer.appendChild(reviewElement);
+                                                reviewForm.reset();
+                                            } else {
+                                                
+                                            }
+                                        });
+                                    </script>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

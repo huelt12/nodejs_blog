@@ -1,0 +1,58 @@
+{{!-- <h1>Kiểm tra đơn hàng</h1>
+    <p>Thông tin đơn hàng bạn đã đặt:</p>
+    <div id="order-details">
+    <ul>
+        <li>Họ và tên: {{order.fullName}}</li>
+        <li>Email: {{order.email}}</li>
+        <li>Số điện thoại: {{order.phone}}</li>
+    </ul>
+</div> --}}
+
+<h1>Các đơn hàng của bạn</h1>
+<ul action="/checkout/user-orders">
+    {{#each orders}}
+    <li>
+        <h2>Đơn hàng {{order._id}}</h2>
+        <p>Họ và tên: {{order.fullName}}</p>
+        <p>Email: {{order.email}}</p>
+        <!-- Hiển thị thông tin đơn hàng khác tại đây -->
+    </li>
+    {{/each}}
+</ul>
+
+
+{{!-- <script>
+    // Lấy dữ liệu đơn hàng từ URL query parameter
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const orderString = urlParams.get('orderData');
+
+
+if (orderString && orderString !== "undefined") {
+    try {
+        const order = JSON.parse(decodeURIComponent(orderString));
+        
+        // Hiển thị thông tin đơn hàng lên trang "Checkorder"
+        const orderDetailsDiv = document.getElementById('order-details');
+        orderDetailsDiv.innerHTML = `
+            <h2>Thông tin đơn hàng</h2>
+            <ul>
+                <li>Họ và tên: ${order.fullName}</li>
+                <li>Email: ${order.email}</li>
+                <li>Số điện thoại: ${order.phone}</li>
+            </ul>
+            <h3>Sản phẩm:</h3>
+            <ul>
+                ${order.orderItems.map(item => `<li>${item.itemName} (Số lượng: ${item.quantity}, Giá: ${item.price})</li>`).join('')}
+            </ul>
+        `;
+    } catch (error) {
+        console.error('Lỗi khi lấy thông tin đơn hàng từ URL:', error);
+    }
+} else {
+    console.error('Không có thông tin đơn hàng được truyền từ trang Checkout.');
+}
+
+</script> --}}
+
+

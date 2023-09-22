@@ -1,21 +1,42 @@
-const Course = require('../Models/Couserse')
+const Promotion = require('../Models/Promotion')
+const {mutipleMongooseToObject} = require('../../util/mongoose')
 const {mongooseToObject} = require('../../util/mongoose');
 
 class PromotionController {
 
-    index(req, res){
-        res.render('promotion');
+    async promotion(req, res, next){
+    // Đọc từ BD
+        Promotion.find({})
+         .then(promotions => {         
+             res.render('promotion', {
+                promotions: mutipleMongooseToObject(promotions), 
+                authenticated: req.session.authenticated || false
+             });
+         })
+         .catch(next);
     }
 
-    // GET /courses/:slug
     show(req, res, next){
-        
-        Course.find({})
-            .then(courses => {         
-                res.render('promotion', {courses: mongooseToObject(course)})
+        Promotion.findOne({slug: req.params.slug})
+            .then(promotion => {
+                res.render('promotions/show', 
+                {promotion: mongooseToObject(promotion),
+                authenticated: req.session.authenticated || false});
             })
-                .catch(next);           
+            .catch(next); 
     }
+
+    add_cart(req, res, next){
+        Promotion.findById({_id: req.params._id})
+            .then(promotion => {
+                res.render('promotions/add_cart', 
+                {promotion: mongooseToObject(promotion), 
+                authenticated: req.session.authenticated || false})
+            })
+            .catch(next);
+    }
+
+
     
 }
 

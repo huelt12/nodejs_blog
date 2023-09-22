@@ -28,10 +28,10 @@
                     </div>
                 </div>
             </div>
-
+ 
             <div class="col-lg-7 h-auto mb-30">
                 <div class="h-100 bg-light p-100">
-                    <h2 class="container pt-3 "><a href="/sach/44720/thu-gui-nha-tieu-thuyet-tre">{{course.name}}</a></h2>
+                    <h3 class="container pt-3 ">{{course.name}}</h3>
                     
                     <div class="container">
                         <div class="row px-xl-1 pb-1 pt-3">
@@ -41,11 +41,11 @@
                                             <div class="attributes ">
                                                         <li class="dataattr">
                                                             <span>Mã sản phẩm: </span>
-                                                            <a href="/courses/id">{{course._id}}</a>
+                                                            <th href="/courses/id">{{course._id}}</th>
                                                         </li>
                                                         <li class="dataattr">
                                                             <span>Tác giả: </span>
-                                                            <a href="/tac-gia/138/mario-vargas-llosa">{{course.author}}</a>                                                                  
+                                                            <th href="/tac-gia/138/mario-vargas-llosa">{{course.author}}</th>                                                                  
                                                         </li>
                                                         {{!-- <li class="dataattr">
                                                                 <span>Dịch giả: </span>
@@ -53,15 +53,15 @@
                                                         </li> --}}
                                                         <li class="dataattr">
                                                                 <span>Nhà xuất bản: </span>
-                                                                <a href="/nha-xuat-ban/1/hoi-nha-van">{{course.nha_sx}}</a>
+                                                                <th href="/nha-xuat-ban/1/hoi-nha-van">{{course.nha_sx}}</th>
                                                         </li>  
                                                         <li class="dataattr">
                                                                 <span>Số trang: </span>
-                                                                <a href="/tac-gia/138/mario-vargas-llosa">{{course.so_trang}}</a>                                                                  
+                                                                <th href="/tac-gia/138/mario-vargas-llosa">{{course.so_trang}}</th>                                                                  
                                                         </li>  
                                                         <li class="dataattr">
                                                                 <span>Kích thước: </span>
-                                                                <a href="/tac-gia/138/mario-vargas-llosa">{{course.kich_thuoc}}</a>                                                                  
+                                                                <th href="/tac-gia/138/mario-vargas-llosa">{{course.kich_thuoc}}</th>                                                                  
                                                         </li>
                                                         
                                                 <div class=" container d-flex align-items-center mb-2 pt-2 ">
@@ -142,7 +142,7 @@
                     <div class="nav nav-tabs mb-4">
                         <a class="nav-item nav-link text-dark active" data-toggle="tab" href="#tab-pane-1">Giới thiệu sách</a>
                         {{!-- <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-2">Information</a> --}}
-                        <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-3">Đánh giá (5)</a>
+                        <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-3">Đánh giá</a>
                     </div>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="tab-pane-1">
@@ -150,54 +150,147 @@
                             <p>{{course.description}}</p>
                         </div>
                         <div class="tab-pane fade" id="tab-pane-3">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h4 class="mb-4">1 đánh giá cho "{{course.name}}"</h4>
+                            <div class="row ">
+                                <div class=" col-md-6" id="review-container">
+                                    <h4 class="mb-4">Các đánh giá cho "{{course.name}}"</h4>
                                     <div class="media mb-4">
-                                        <img src="/public/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                                        <img src="/public/img/image2.jpg" alt="Image" class="avatar-img img-fluid mr-3 mt-1" style="width: 45px;">
                                         <div class="media-body">
-                                            <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
+                                            <h6>Bảo Uyên<small> - <i>01 Jan 2022</i></small></h6>
                                             <div class="text-primary mb-2">
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
-                                                <i class="fas fa-star-half-alt"></i>
-                                                <i class="far fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>                                          
                                             </div>
-                                            <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
+                                            <p>Sách đẹp lắm, lần đầu đặt shop mà sp ưng v lần sau sẽ ủng hộ. Đóng gói cẩn thận, giao hàng trong ngày nhanh chóng.</p>
+                                        </div>
+                                    </div>
+                                    <div class="media mb-4">
+                                        <img src="/public/img/image1.jpg" alt="Image" class="avatar-img img-fluid mr-3 mt-1" style="width: 45px;">
+                                        <div class="media-body">
+                                            <h6>Thanh Hải<small> - <i>06 August 2022</i></small></h6>
+                                            <div class="text-primary mb-2">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>                                          
+                                            </div>
+                                            <p>Một cuốn sách hay đáng để đọc và ý nghĩa dành cho các bạn trẻ .</p>
+                                            <p> Đóng gói cẩn thận, giao hàng hơi lâu, lần sau vẫn sẽ ủng hộ shop.</p>
+                                        </div>
+                                    </div>
+                                    <div class="media mb-4">
+                                        <img src="/public/img/image3.jpg" alt="Image" class="avatar-img img-fluid mr-3 mt-1" style="width: 45px;">
+                                        <div class="media-body">
+                                            <h6>Lan Hương<small> - <i>15 Dec 2021</i></small></h6>
+                                            <div class="text-primary mb-2">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>                                          
+                                            </div>
+                                            <p>Bìa dày chữ nổi đẹp, sách hay nữa có kèm bookmark giấy dày rất ưng 👍👍 nên mua</p>
+                                            <p>Mình thấy review hay nên mua đọc thử xem sao,trên tiktok hay giới thiệu,giá cũng ko quá mắc</p>
                                         </div>
                                     </div>
                                 </div>
+
+
+                                <div id="review-success" class="d-none">
+                                    <p class="text-success">Đánh giá của bạn đã được gửi thành công!</p>
+                                </div>
+
                                 <div class="col-md-6">
-                                    <h4 class="mb-4">Để lại đánh giá</h4>
-                                    <small>Địa chỉ email của bạn sẽ không được công khai. Các trường bắt buộc được đánh dấu *</small>
+                                    <h4 class="mb-4">Để lại đánh giá</h4>                                   
+
                                     <div class="d-flex my-3">
-                                        <p class="mb-0 mr-2">Chất lượng sản phẩm * :</p>
-                                        <div class="text-primary">
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
+                                        <p class="mb-0 mr-2">Chất lượng sản phẩm :</p>
+                                        <div class="rating-stars">
+                                            <i class="star far fa-star" data-rating="1"></i>
+                                            <i class="star far fa-star" data-rating="2"></i>
+                                            <i class="star far fa-star" data-rating="3"></i>
+                                            <i class="star far fa-star" data-rating="4"></i>
+                                            <i class="star far fa-star" data-rating="5"></i>
+                                            <input type="hidden" id="rating-input" name="rating" value="0">
                                         </div>
                                     </div>
+                                    <script>
+                                        const stars = document.querySelectorAll('.star');
+                                        const ratingInput = document.getElementById('rating-input');
+
+                                        stars.forEach(star => {
+                                            star.addEventListener('click', function() {
+                                                const rating = parseInt(this.getAttribute('data-rating'));
+                                                ratingInput.value = rating;
+                                                updateStars(rating);
+                                            });
+                                        });
+
+                                        function updateStars(selectedRating) {
+                                            stars.forEach(star => {
+                                                const rating = parseInt(star.getAttribute('data-rating'));
+                                                if (rating <= selectedRating) {
+                                                    star.classList.remove('far');
+                                                    star.classList.add('fas');
+                                                } else {
+                                                    star.classList.remove('fas');
+                                                    star.classList.add('far');
+                                                }
+                                            });
+                                        }
+
+                                    </script>
+
                                     <form>
                                         <div class="form-group">
-                                            <label for="message">Đánh giá của bạn *</label>
+                                            <label for="message">Đánh giá của bạn </label>
                                             <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="name">Tên của bạn *</label>
+                                        {{!-- <div class="form-group">
+                                            <label for="name">Tên của bạn </label>
                                             <input type="text" class="form-control" id="name">
                                         </div>
                                         <div class="form-group">
-                                            <label for="email"> Email của bạn *</label>
+                                            <label for="email"> Email của bạn </label>
                                             <input type="email" class="form-control" id="email">
-                                        </div>
+                                        </div> --}}
                                         <div class="form-group mb-0">
                                             <input type="submit" value="Gửi đánh giá" class="btn btn-primary px-3">
                                         </div>
                                     </form>
+                                    <script>
+                                        const reviewForm = document.querySelector('#review-form');
+                                        const reviewContainer = document.querySelector('#review-container');
+
+                                        reviewForm.addEventListener('submit', async (e) => {
+                                            e.preventDefault();
+                                            const formData = new FormData(reviewForm);
+                                            const response = await fetch('/review', {
+                                                method: 'POST',
+                                                body: formData,
+                                            });
+                                            const data = await response.json();
+
+                                            if (data.success) {
+                                                const newReview = data.review;
+                                                const reviewElement = document.createElement('div');
+                                                reviewElement.innerHTML = `
+                                                    <h3>Đánh giá mới:</h3>
+                                                    <p>Rating: ${newReview.rating}</p>
+                                                    <p>Message: ${newReview.message}</p>
+                                                `;
+                                                reviewContainer.appendChild(reviewElement);
+                                                reviewForm.reset();
+                                            } else {
+                                                
+                                            }
+                                        });
+                                    </script>
+
                                 </div>
                             </div>
                         </div>

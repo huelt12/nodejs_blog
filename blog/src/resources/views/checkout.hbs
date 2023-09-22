@@ -1,66 +1,76 @@
 <!-- Checkout Start -->
     <div class="container-fluid">
-        <div class="row px-xl-1">
+        <form id="orderForm" action="/checkout/place-order" method="POST">
+        <div class="row px-xl-1">   
             <div class="col-lg-8">
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">THÔNG TIN THANH TOÁN</span></h5>
-                <div class="bg-light p-30 mb-5">
-                    <div class="row">   
-                        <div class="col-md-6 form-group">
-                            <label>Họ</label>
-                            <input class="form-control" type="text" placeholder="John">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Tên</label>
-                            <input class="form-control" type="text" placeholder="Doe">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>E-mail</label>
-                            <input class="form-control" type="text" placeholder="example@email.com">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Số điện thoại</label>
-                            <input class="form-control" type="text" placeholder="+123 456 789">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Tỉnh</label>
-                            <select class="custom-select">
-                                <option selected>Hà Nội</option>
-                                <option>Afghanistan</option>
-                                <option>Albania</option>
-                                <option>Algeria</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Quận / Huyện / Thị xã</label>
-                            <input class="form-control" type="text" placeholder="New York">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Xã / Phường / Thị Trấn</label>
-                            <input class="form-control" type="text" placeholder="123 Street">
-                        </div>                       
-                        <div class="col-md-6 form-group">
-                            <label>Địa chỉ nhận hàng cụ thể</label>
-                            <input class="form-control" type="text" placeholder="123 Street">
-                        </div>
-                        <div class="col-md-12">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="shipto">
-                                <label class="custom-control-label" for="shipto"  data-toggle="collapse" data-target="#shipping-address">Thêm địa chỉ mới</label>
+                
+                     <div class="bg-light p-30 mb-5 large-frame" style="padding-top: 15px;padding-bottom: 15px; ">
+                        <div class="row">   
+                            <div class="col-md-6 form-group">
+                                <label>Tên người nhận</label>
+                                <input class="form-control" type="text" name="fullName" id="fullNameInput">
+
                             </div>
-                        </div>
+                            {{!-- <div class="col-md-6 form-group">
+                                <label>Tên</label>
+                                <input class="form-control" type="text" id="lastNameInput" >
+                            </div> --}}
+                            <div class="col-md-6 form-group">
+                                <label>E-mail</label>
+                                <input class="form-control" type="text" name="email" placeholder="@gmail.com" id="emailInput">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Số điện thoại nhận hàng</label>
+                                <input class="form-control" type="text" name="phone" id="phoneInput" >
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Tỉnh</label>
+                                <select class="custom-select" name="province" id="provinceSelect" id="provinceSelect">
+                                    <option value="" selected disabled></option>
+                                    <option>Hà Nội</option>
+                                    <option>Bắc Giang</option>
+                                    <option>Afghanistan</option>
+                                    <option>Albania</option>
+                                    <option>Algeria</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label>Quận / Huyện / Thị xã</label>
+                                <input class="form-control" type="text" name="district" id="addressInput">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Xã / Phường / Thị Trấn</label>
+                                <input class="form-control" type="text" name="street" id="addressInput">
+                            </div>                       
+                            <div class="col-md-12 form-group">
+                                <label>Địa chỉ nhận hàng cụ thể</label>
+                                <input class="form-control full-width-input" type="text" name="specificAddress" id="addressInput">
+                            </div>
+                        
+
+                            {{!-- <div class="col-md-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="shipto">
+                                    <label class="custom-control-label" for="shipto"  data-toggle="collapse" data-target="#shipping-address">Thêm địa chỉ mới</label>
+                                </div>
+                            </div> --}}
+                        </div> 
+                        
                     </div>
-                </div>
-                <div class="collapse mb-5" id="shipping-address">
+                
+                {{!-- <div class="collapse mb-5" id="shipping-address">
                     <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">ĐỊA CHỈ GIAO HÀNG (2)</span></h5>
                     <div class="bg-light p-30">
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label>Họ</label>
-                            <input class="form-control" type="text" placeholder="John">
+                            <input class="form-control" type="text" >
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Tên</label>
-                            <input class="form-control" type="text" placeholder="Doe">
+                            <input class="form-control" type="text" >
                         </div>
                         <div class="col-md-6 form-group">
                             <label>E-mail</label>
@@ -68,7 +78,7 @@
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Số điện thoại</label>
-                            <input class="form-control" type="text" placeholder="+123 456 789">
+                            <input class="form-control" type="text" >
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Tỉnh</label>
@@ -81,84 +91,183 @@
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Quận / Huyện / Thị xã</label>
-                            <input class="form-control" type="text" placeholder="New York">
+                            <input class="form-control" type="text" >
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Xã / Phường / Thị Trấn</label>
-                            <input class="form-control" type="text" placeholder="123 Street">
+                            <input class="form-control" type="text" >
                         </div>                       
                         <div class="col-md-6 form-group">
                             <label>Địa chỉ nhận hàng cụ thể</label>
-                            <input class="form-control" type="text" placeholder="123 Street">
+                            <input class="form-control" type="text" >
                         </div>
                     </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="col-lg-4">
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">TỔNG ĐƠN HÀNG</span></h5>
-                <div class="bg-light p-30 mb-5">
-                    <div class="border-bottom">
+                <div class="bg-light p-30 mb-5 large-frame" style="padding-top: 10px;">
+                    {{!-- <div class="border-bottom">
                         <h6 class="mb-3">SẢN PHẨM</h6>
                         <div class="d-flex justify-content-between">
-                            <p>Product Name 1</p>
-                            <p>$150</p>
+                            <p id="productName"></p>
+                            <p id="productPrice"></p>
                         </div>
-                        <div class="d-flex justify-content-between">
-                            <p>Product Name 2</p>
-                            <p>$150</p>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <p>Product Name 3</p>
-                            <p>$150</p>
-                        </div>
-                    </div>
+                    
+                    </div> --}}
                     <div class="border-bottom pt-3 pb-2">
+
                         <div class="d-flex justify-content-between mb-3">
-                            <h6>Tổng tiền hàng</h6>
-                            <h6>$150</h6>
+                            <h6 >Tổng tiền hàng</h6>
+                            <h6 id="total-price"></h6>
                         </div>
+
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Tổng phí vận chuyển</h6>
-                            <h6 class="font-weight-medium">$10</h6>
+                            <h6 id="tong-phi-van-chuyen">15.000</h6>
                         </div>
                     </div>
                     <div class="pt-2">
                         <div class="d-flex justify-content-between mt-2">
                             <h5>Tổng thanh toán</h5>
-                            <h5>$160</h5>
+                            <h5 id="tong-thanh-toan"></h5>
                         </div>
-                    </div>
+                    </div> 
                 </div>
-                {{!-- <div class="mb-5">
-                    <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Phương thức thanh toán</span></h5>
-                    <div class="bg-light p-30">
-                        <div class="form-group">
-                            <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="payment" id="paypal">
-                                <label class="custom-control-label" for="paypal">Paypal</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="payment" id="directcheck">
-                                <label class="custom-control-label" for="directcheck">Direct Check</label>
-                            </div>
-                        </div>
-                        <div class="form-group mb-4">
-                            <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="payment" id="banktransfer">
-                                <label class="custom-control-label" for="banktransfer">Bank Transfer</label>
-                            </div>
-                        </div>
-                        <button class="btn btn-block btn-primary font-weight-bold py-3">Place Order</button>
-                    </div>
-                </div> --}}
-                <button class="btn btn-block btn-primary font-weight-bold py-3">ĐẶT HÀNG</button>
+                <button type="submit" id="place-order-button"  class="btn btn-block btn-primary font-weight-bold py-3 large-frame" href="/checkorder">ĐẶT HÀNG</button>
+                    <style>
+                        #orderButton {
+                            width: 50%; /* Điều chỉnh kích thước chiều ngang theo mong muốn, ví dụ 50% */
+                            margin: 0 auto; /* Để căn giữa nút theo chiều ngang */
+                            display: block; /* Để đảm bảo nút nằm trên một dòng riêng biệt */
+                        }
+                    </style>
+                <div id="error-message" style="color: red;"></div>
             </div>
         </div>
+        </form>
     </div>
     <!-- Checkout End -->
+<style>
+    .large-frame {
+        border: 1px solid #ccc; /* Để thêm viền đen */
+        border-radius: 10px; /* Bo góc */
+        padding: 20px; /* Để tạo khoảng cách giữa nội dung và viền */
+    }
+</style>
+
+<script>
+    // Xử lý khi click nút "Đặt hàng" tại màn hình Checkout
+    const placeOrderButton = document.getElementById('place-order-button');
+    placeOrderButton.addEventListener('click', async () => {
+        try {
+            // Thực hiện xử lý đặt hàng và lưu thông tin đơn hàng vào một biến order
+            const order = {
+                fullName: document.getElementById('fullNameInput').value,
+                email: document.getElementById('emailInput').value,
+                phone: document.getElementById('phoneInput').value,
+                // Thêm các trường thông tin khác từ trang Checkout
+                // Ví dụ: province, district, street, specificAddress, ...
+            };
+            
+            // Chuyển dữ liệu đơn hàng sang trang "Checkorder" thông qua URL query parameter
+            const queryString = `?orderData=${encodeURIComponent(JSON.stringify(order))}`;
+            window.location.href = `/checkorder${queryString}`;
+        } catch (error) {
+            console.error('Lỗi khi đặt hàng:', error);
+        }
+    });
+
+</script>
+
+
+<script>
+    // Lấy danh sách tất cả các dòng sản phẩm
+    const productRows = document.querySelectorAll('.product-row');
+
+    // Định nghĩa biến để lưu trạng thái bắt đầu click
+    let isMouseDown = false;
+
+    // Định nghĩa hàm tính tổng tiền
+    function calculateTotal() {
+        let total = 0;
+
+        productRows.forEach(row => {
+            const giaElement = row.querySelector('.gia');
+            const quantityElement = row.querySelector('.quantity input');
+            const totalElement = row.querySelector('.total-price');
+
+            const gia = parseFloat(giaElement.textContent.replace('$', '').trim());
+            const quantity = parseInt(quantityElement.value);
+
+            const subTotal = gia * quantity;
+
+            // Cập nhật giá trị tổng cho mỗi sản phẩm
+            totalElement.textContent = subTotal.toFixed(2);
+
+            // Cộng vào tổng tổng cộng
+            total += subTotal;
+        });
+
+        // Hiển thị tổng tiền hàng
+        const totalPriceElement = document.getElementById('total-price');
+        totalPriceElement.textContent = total.toFixed(2);
+
+        // Cập nhật tổng thanh toán
+        const tongPhiVanChuyenElement = document.getElementById('tong-phi-van-chuyen');
+        const tongThanhToanElement = document.getElementById('tong-thanh-toan');
+        const tongPhiVanChuyen = parseFloat(tongPhiVanChuyenElement.textContent.trim());
+        const tongThanhToan = total + tongPhiVanChuyen;
+        tongThanhToanElement.textContent = tongThanhToan.toFixed(2);
+    }
+
+    // Gắn sự kiện cho nút cộng và trừ
+    productRows.forEach(row => {
+        const minusButton = row.querySelector('.btn-minus');
+        const plusButton = row.querySelector('.btn-plus');
+        const quantityInput = row.querySelector('.quantity input');
+
+        minusButton.addEventListener('mousedown', () => {
+            isMouseDown = true;
+            setTimeout(() => {
+                if (isMouseDown) {
+                    const quantity = parseInt(quantityInput.value);
+                    if (quantity > 1) {
+                        quantityInput.value = quantity - 1;
+                        calculateTotal();
+                    }
+                }
+            }, 300); // Sử dụng thời gian delay (milliseconds) để kiểm soát double click
+        });
+
+        plusButton.addEventListener('mousedown', () => {
+            isMouseDown = true;
+            setTimeout(() => {
+                if (isMouseDown) {
+                    const quantity = parseInt(quantityInput.value);
+                    quantityInput.value = quantity + 1;
+                    calculateTotal();
+                }
+            }, 300); // Sử dụng thời gian delay (milliseconds) để kiểm soát double click
+        });
+
+        // Sự kiện kết thúc click
+        window.addEventListener('mouseup', () => {
+            isMouseDown = false;
+        });
+
+        // Sự kiện input để theo dõi sự thay đổi của số lượng
+        quantityInput.addEventListener('input', () => {
+            calculateTotal();
+        });
+    });
+
+    // Tính tổng lúc tải trang
+    calculateTotal();
+</script>
+
+
 
 
 

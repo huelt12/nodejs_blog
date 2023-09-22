@@ -1,13 +1,55 @@
-{{!-- <div class="container-fluid pt-2">
-    <div class="row px-xl-1 pb-1">
-        <div>
-            <iframe src="{{book_free.pdf}}" frameborder="0" width="1000" height="800"></iframe>
-        </div>
-    </div>
-</div> --}}
 <div class="container-fluid h-100 d-flex justify-content-center align-items-center">
         <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="{{book_free.pdf}}" frameborder="0"></iframe>
         </div>
 </div>
 
+<script>
+    // Lấy URL hiện tại của trang
+    var currentURL = window.location.href;
+    
+    // Tạo một biến để lưu trữ giá trị của {{this.slug}} từ URL
+    var slug = currentURL.split("/").pop();
+
+    // Danh sách các slug
+    var slugsToHide = [
+        "Sach_mien_phi-trituedothai",
+        "Sach_mien_phi-dacnhantam",
+        "Sach_mien_phi-chuyenconmeodayhaiaubay",
+        "Sach_mien_phi-guithoithanhxuantuoidepcuachungta",
+        "Sach_mien_phi-datrungphuongnam",
+        "Sach_mien_phi-battredongxanh",
+        "Sach_mien_phi-yeuemtucainhindautien",
+        "Sach_mien_phi-anhkhongmuondeemmotminh",
+        "slug3",
+        "slug3",
+        "slug3",
+        "slug3",
+        "slug3",
+        "slug3",
+        "slug3"
+        // Thêm các slug khác vào danh sách nếu cần
+    ];
+    // Kiểm tra xem URL có khớp với http://localhost:3000/bookfree/detail/{{this.slug}} không
+    if (currentURL.indexOf("http://localhost:3000/bookfree/detail/") !== -1) {
+        // Kiểm tra giá trị của slug
+        var slug = currentURL.replace("http://localhost:3000/bookfree/detail/", "");
+        if (slugsToHide.includes(slug)) {
+            // Đặt lớp CSS cho phần header
+            var header = document.querySelector(".header");
+            if (header) {
+                header.classList.add("hidden");
+            }
+        }
+    }
+</script>
+<style>
+    .hidden {
+        display: none;
+    }
+        /* Đặt chiều cao cho phần body khi header bị ẩn */
+    body {
+        margin-top: 10px; /* Loại bỏ margin top mặc định */
+        padding-top: 0; /* Loại bỏ padding top mặc định */
+    }
+</style>

@@ -1,3 +1,5 @@
+
+{{#if isFirstPage}}
 <!-- Carousel Start -->
     <div class="container-fluid mb-1">
         <div class="row px-xl-6">
@@ -9,16 +11,10 @@
                         <li data-target="#header-carousel" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner">
-                        <div class="carousel-item position-relative" style="height: 430px;">
+                        <div class="carousel-item position-relative" style="height: 380px;">
                             <img class="position-absolute w-100 h-100" src="/public/img/banner-3.jpg" style="object-fit: cover; filter: brightness(1.2);">
-                            {{!-- <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                                <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"></h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn"></p>
-                                </div>
-                            </div> --}}
                         </div>
-                        <div class="carousel-item position-relative active" style="height: 430px;">
+                        <div class="carousel-item position-relative active" style="height: 380px;">
                             <div class="position-absolute w-100 h-100" style="background-image: url('/public/img/banner-1.jpg'); background-size: cover; background-position: center; filter: brightness(1.2);"></div>
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
@@ -28,7 +24,7 @@
                             </div>
                         </div>
 
-                        <div class="carousel-item position-relative" style="height: 430px;">
+                        <div class="carousel-item position-relative" style="height: 380px;">
                             <img class="position-absolute w-100 h-100" src="/public/img/banner-2.jpg" style="object-fit: cover; filter: brightness(1.2);">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
@@ -37,24 +33,24 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="product-offer mb-30" style="height: 200px;">
+                <div class="product-offer mb-30" style="height: 185px;">
                     <img class="img-fluid" src="/public/img/offer-1.jpg" alt="" style="filter: brightness(1.2);">
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase">ƯU ĐÃI 20%</h6>
-                        <h3 class="text-white mb-3">Deal chào hè </h3>
-                        <a href="/promotion" class="btn btn-primary">Mua Ngay</a>
+                        <h3 class="text-white mb-3">Deal cực sốc </h3>
+                        <a href="/promotions" class="btn btn-primary">Mua Ngay</a>
                     </div>
                 </div>
-                <div class="product-offer mb-30" style="height: 200px;">
+                <div class="product-offer mb-30" style="height: 185px;">
                     <img class="img-fluid" src="/public/img/offer-2.jpg" alt="" style="filter: brightness(1.2);">
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase">ƯU ĐÃI 15%</h6>
                         <h3 class="text-white mb-3">Giảm giá đặc biệt</h3>
-                        <a href="/promotion" class="btn btn-primary">Mua Ngay</a>
+                        <a href="/promotions" class="btn btn-primary">Mua Ngay</a>
                     </div>
                 </div>
             </div>
@@ -64,28 +60,28 @@
 
 
        <!-- Featured Start -->
-    <div class="container-fluid pt-2">
+    <div class="container-fluid pt-1">
         <div class="row px-xl-1 pb-1">
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="d-flex align-items-center bg-light mb-4" style="padding: 10px;">
+                <div class="d-flex align-items-center bg-light mb-4" style="padding: 10px; height: 50px;">
                     <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
                     <h5 class="font-weight-semi-bold m-0">Mã giảm giá</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="d-flex align-items-center bg-light mb-4" style="padding: 10px;">
+                <div class="d-flex align-items-center bg-light mb-4" style="padding: 10px;height: 50px;">
                     <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
                     <h5 class="font-weight-semi-bold m-0">Miễn phí vận chuyển</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="d-flex align-items-center bg-light mb-4" style="padding: 10px;">
+                <div class="d-flex align-items-center bg-light mb-4" style="padding: 10px;height: 50px;">
                     <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
                     <h5 class="font-weight-semi-bold m-0">Hoàn trả</h5>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="d-flex align-items-center bg-light mb-4" style="padding: 10px;">
+                <div class="d-flex align-items-center bg-light mb-4" style="padding: 10px;height: 50px;">
                     <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
                     <h5 class="font-weight-semi-bold m-0">24/7 Hỗ trợ</h5>
                 </div>
@@ -93,9 +89,9 @@
         </div>
     </div>
     <!-- Featured End -->
+{{/if}}
 
-
-<div class="container-fluid pt-2 pb-3">
+<div class="container-fluid pt-1 pb-3">
     <div class="row px-xl-1">
         {{#each courses}}
         <div class="col-sm-6 col-lg-3 col-md-4 pb-1">
@@ -126,45 +122,132 @@
         </div>
         {{/each}}
     </div>
-    {{!-- <div class="col-12">
-        <div id="blogs-pagination">
+</div>
+
+<!-- Phân trang -->
+<div class="container" id="course-list">
+    <div class="row justify-content-center">
         <nav>
-            <ul class="pagination justify-content-center">
-                {{#paginate courses itemsPerPage=10}}
-                    <li class="{{#if isFirstPage}}disabled{{/if}} page-item">
-                        <a class="page-link" href="{{pageLink firstPageNum}}">Trước</a>
-                    </li>
-                    {{#each pages}}
-                        <li class="{{#if isActive}}active{{/if}} page-item">
-                            <a class="page-link" href="{{pageLink}}">
-                                {{pageNumber}}
-                            </a>
-                        </li>
-                    {{/each}}
-                    <li class="{{#if isLastPage}}disabled{{/if}} page-item">
-                        <a class="page-link" href="{{pageLink lastPageNum}}">Sau</a>
-                    </li>
-                {{/paginate}}
+            <ul class="pagination">
+                {{#if hasPrevPage}}
+                <li class="page-item">
+                    <a id="next-button" class="page-link" href="/?page={{this.pageNumber}}" aria-label="Trang trước">Trước
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {{/if}}
+
+                {{#each pages}}
+                <li  class="page-item {{#if this.active}}active{{/if}}">
+                    <a class="page-link" href="/?page={{this.pageNumber}}">{{this.pageNumber}}</a>
+                </li>
+                {{/each}}
+
+                {{#if hasNextPage}}
+                <li class="page-item">
+                    <a  id="prev-button" class="page-link" href="/?page={{nextPage}}" aria-label="Trang sau" style="width: 74px">Sau
+                        <span aria-hidden="true">&raquo;</span> 
+                    </a>
+                </li>
+                {{/if}}
             </ul>
         </nav>
+    </div>
+</div>
+
+
+{{!-- 
+<div class="col-12">
+    <nav>
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#">Trước</a>
+            </li>
+            <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">Sau</a>
+            </li>
+        </ul>
+    </nav>
+</div> --}}
+
+
+<script>
+    $(document).ready(function () {
+  // Xử lý sự kiện khi người dùng nhấp vào nút "Next"
+  $('#next-button').click(function (e) {
+    e.preventDefault(); // Ngăn chặn sự kiện mặc định
+    // Lấy trang hiện tại và tải trang tiếp theo bằng AJAX
+    const currentPage = parseInt($('#current-page').text());
+    loadPage(currentPage + 1);
+  });
+
+  // Xử lý sự kiện khi người dùng nhấp vào nút "Previous"
+  $('#prev-button').click(function (e) {
+    e.preventDefault(); // Ngăn chặn sự kiện mặc định
+    // Lấy trang hiện tại và tải trang trước đó bằng AJAX
+    const currentPage = parseInt($('#current-page').text());
+    loadPage(currentPage - 1);
+  });
+
+  // Hàm để tải dữ liệu trang bằng AJAX
+  function loadPage(page) {
+    $.ajax({
+      url: `/?page=${page}`, // Điều hướng đến endpoint trang của bạn với trang cụ thể
+      type: 'GET',
+      success: function (data) {
+        // Cập nhật giao diện với dữ liệu mới từ server
+        // Ví dụ: cập nhật danh sách khóa học
+        updateCourses(data.courses);
+
+        // Cập nhật trang hiện tại và các nút "Next" và "Previous"
+        $('#current-page').text(data.currentPage);
+        if (data.hasPrevPage) {
+          $('#prev-button').show();
+        } else {
+          $('#prev-button').hide();
+        }
+        if (data.hasNextPage) {
+          $('#next-button').show();
+        } else {
+          $('#next-button').hide();
+        }
+      },
+      error: function (error) {
+        console.error(error);
+      },
+    });
+  }
+
+  // Hàm để cập nhật danh sách khóa học trong giao diện
+  function updateCourses(courses) {
+    // Xóa danh sách khóa học hiện có
+    $('#course-list').empty();
+
+    // Thêm các khóa học mới vào danh sách
+    courses.forEach(function (course) {
+      const courseHtml = `
+        <div class="col-sm-6 col-lg-3 col-md-4 pb-1">
+          <!-- Điều chỉnh mã HTML để hiển thị thông tin khóa học -->
         </div>
-    </div> --}}
-    {{!-- <ul id="pagination">
+      `;
+      $('#course-list').append(courseHtml);
+    });
+  }
 
-    </ul> --}}
+  // Gọi hàm loadPage để tải trang ban đầu
+  loadPage(1);
+});
 
-
-                    {{!-- <div class="col-12">
-                        <nav>
-                          <ul class="pagination justify-content-center">
-                            <li class="page-item disabled"><a class="page-link" href="#">Trước</span></a></li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Sau</a></li>
-                          </ul>
-                        </nav>
-                    </div> --}}
+</script>
 
 
 

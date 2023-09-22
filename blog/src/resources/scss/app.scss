@@ -1,28 +1,3 @@
-// .contact-form .help-block ul {
-//     margin: 0;
-//     padding: 0;
-//     list-style-type: none;
-//   }
-
-//   .container, .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
-//     width: 100%;
-//     padding-right: 15px;
-//     padding-left: 15px;
-//     margin-right: auto;
-//     margin-left: auto;
-// }
-// div {
-//     display: block;
-// }
-// .bg-dark {
-//     background-color: #3D464D !important;
-// }
-
-// .bg-primary {
-//     background-color: aqua;
-// }
-
-
 
 
 /******* Bootstrap Theming ********/
@@ -68,7 +43,30 @@
   *::after {
     box-sizing: border-box;
   }
-  
+  span {
+    color: rgb(99, 87, 87); /* Chọn màu đen hoặc màu tùy chọn khác */
+    font-weight: lighter;
+    margin-right: 5px;
+    // font-weight: normal;
+  }
+  .attributes li.dataattr th {
+    color: rgb(8, 8, 8); /* Chọn màu đen hoặc màu tùy chọn khác */
+  }
+  .avatar-img {
+    width: 30px; 
+    height: 30px; 
+  }
+  .error-message {
+    font-style: italic; /* In nghiêng chữ */;
+  }
+  /* Điều chỉnh màu của ngôi sao đã chọn */
+  .rating-stars .star[data-rating="1"],
+  .rating-stars .star[data-rating="2"],
+  .rating-stars .star[data-rating="3"],
+  .rating-stars .star[data-rating="4"],
+  .rating-stars .star[data-rating="5"] {
+      color: gold;
+  }
   html {
     font-family: sans-serif;
     line-height: 1.15;
@@ -79,7 +77,25 @@
   article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
     display: block;
   }
-  
+  .pagination li.page-item a.page-link {
+    font-weight: bold; /* Đặt độ đậm cho nút phân trang */
+    font-size: 16px; /* Đặt kích thước font cho nút phân trang */
+}
+
+  .pagination li.page-item.active a.page-link {
+      background-color: #0f1011; /* Màu nền cho nút trang hiện tại */
+      color: #0f0f0f; /* Màu chữ cho nút trang hiện tại */
+  }
+  .avatar {
+    height: 34px; /* Đặt chiều cao của hình ảnh bằng với chiều cao của nút tìm kiếm */
+    width: 34px; /* Đảm bảo hình ảnh là hình vuông */
+}
+  .pagination li.page-item a.page-link.prev-link,
+  .pagination li.page-item a.page-link.next-link {
+      color: #000; /* Đặt màu chữ đen cho nút "Trước" và "Sau" */
+      border: 1px solid #000; /* Bao viền cho nút "Trước" và "Sau" */
+      padding: 5px 10px; /* Đặt khoảng cách trong nút */
+  }
   body {
     margin: 0;
     font-family: "Roboto", sans-serif;
@@ -89,8 +105,23 @@
     color: #6C757D;
     text-align: left;
     background-color: #F5F5F5;
+    margin-top: 160px;
   }
-  
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Đảm bảo header hiển thị trên cùng */
+    height: 60px;
+}
+  .no-results-message {
+    text-align: center; /* Căn giữa ngang */
+    font-size: 24px; /* Kích thước chữ lớn hơn */
+    color: #333; /* Màu chữ (tuỳ chỉnh) */
+    margin-top: 20px; /* Khoảng cách từ phía trên (tuỳ chỉnh) */
+  }
+
   [tabindex="-1"]:focus:not(:focus-visible) {
     outline: 0 !important;
   }
@@ -2320,7 +2351,8 @@
     }
     .form-inline .input-group,
     .form-inline .custom-select {
-      width: auto;
+      width: auto; 
+      // 500px
     }
     .form-inline .form-check {
       display: flex;
@@ -3767,6 +3799,7 @@
     background-color: #fff;
     border: 1px solid #ced4da;
   }
+
   
   .custom-file-label::after {
     position: absolute;
@@ -4609,16 +4642,16 @@
     padding: 0.5rem 0.75rem;
     margin-left: -1px;
     line-height: 1.25;
-    color: #FFD333;
+    color: #0e0d0d;
     background-color: #fff;
     border: 1px solid #dee2e6;
   }
   
   .page-link:hover {
     z-index: 2;
-    color: #e6b400;
+    color: #111110;
     text-decoration: none;
-    background-color: #e9ecef;
+    background-color: #e6d070;
     border-color: #dee2e6;
   }
   
@@ -9032,6 +9065,7 @@
     .px-xl-5 {
       padding-right: 3rem !important;
     }
+
     .pb-xl-5,
     .py-xl-5 {
       padding-bottom: 3rem !important;
@@ -9488,7 +9522,7 @@
   }
   
   .mb-30 {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
   }
   
   .pb-30 {

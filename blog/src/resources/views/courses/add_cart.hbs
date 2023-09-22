@@ -1,7 +1,7 @@
     <!-- Cart Start -->
     <div class="container-fluid">
-        <div class="row px-xl-5">
-            <div class="col-lg-8 table-responsive mb-5">
+        <div class="row  px-xl-5">
+            <div class="col-lg-8 table-responsive mb-5 ">
                 <table class="table table-light table-borderless table-hover text-center mb-0">
                     <thead class="thead-dark">
                         <tr>
@@ -11,23 +11,22 @@
                             <th>Tổng</th>
                             <th>Xóa</th>
                         </tr>
-                    </thead>
-                    <tbody class="align-middle">
-                        <tr>
-                            {{!-- <td class="align-middle">
-                                <img src= {{course.image}} alt="" style="width: 50px;"> <br>{{course.name}}</td> --}}
+                    </thead> 
+                    <tbody class="align-middle large-frame">
+                        <tr class="product-row">
                             <td class="align-middle">
                                 <img src="{{course.image}}" alt="" style="width: 50px;">
                                 <span style="margin-left: 10px;">{{course.name}}</span></td>
-                            <td class="align-middle">$150</td>
+                            <td class="align-middle gia">{{course.gia}}</td>
+
                             <td class="align-middle">
                                 <div class="input-group quantity mx-auto" style="width: 100px;">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
+                                        <button class="btn btn-sm btn-primary btn-minus">
+                                            <i class="fa fa-minus"></i>
                                         </button>
                                     </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
+                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center quantity" value="1">
                                     <div class="input-group-btn">
                                         <button class="btn btn-sm btn-primary btn-plus">
                                             <i class="fa fa-plus"></i>
@@ -35,129 +34,161 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="align-middle">$150</td>
+
+                            <td class="align-middle total-price">{{course.gia}}</td>
+
                             <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
                         </tr>
-                        {{!-- <tr>
-                            <td class="align-middle"><img src="/public/img/product-2.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle"><img src="/public/img/product-3.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle"><img src="/public/img/product-4.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle"><img src="/public/img/product-5.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr> --}}
                     </tbody>
                 </table>
             </div>
-            <div class="col-lg-4">
-                <form class="mb-30" action="">
-                    <div class="input-group">
+            <div class="col-lg-4 ">
+                <form class="mb-30 " action="">
+                    <div class="input-group  ">
                         <input type="text" class="form-control border-0 p-4" placeholder="Nhập mã giảm ...">
-                        <div class="input-group-append">
+                        <div class="input-group-append ">
                             <button class="btn btn-primary">Áp dụng mã </button>
                         </div>
                     </div>
                 </form>
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Chi Tiết Thanh Toán</span></h5>
-                <div class="bg-light p-30 mb-5">
+                <div class="bg-light p-30 mb-5 large-frame">
                     <div class="border-bottom pb-2">
                         <div class="d-flex justify-content-between mb-3">
-                            <h6>Tổng tiền hàng</h6>
-                            <h6>$150</h6>
+                            <h6 >Tổng tiền hàng</h6>
+                            <h6 id="total-price"></h6>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Tổng phí vận chuyển</h6>
-                            <h6 class="font-weight-medium">$10</h6>
+                            <h6 id="tong-phi-van-chuyen">15.000</h6>
                         </div>
                     </div>
                     <div class="pt-2">
                         <div class="d-flex justify-content-between mt-2">
                             <h5>Tổng thanh toán</h5>
-                            <h5>$160</h5>
+                            <h5 id="tong-thanh-toan"></h5>
                         </div>
-                        <a href="/checkout" class="btn btn-block btn-primary font-weight-bold my-3 py-3">Tiến hành thanh toán</a>
+                        <a href="/checkout?productName={{course.name}}&productPrice={{course.gia}}" class="btn btn-block btn-primary font-weight-bold my-3 py-3 small-button large-frame">Tiến hành thanh toán</a>
+                        <style>
+                            .small-button {
+                                padding: 8px 5px; /* Điều chỉnh kích thước padding theo mong muốn */
+                            }
+                        </style>
+                        {{!-- <a href="/checkout" class="btn btn-block btn-primary font-weight-bold my-3 py-3">Tiến hành thanh toán</a> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Cart End -->
+<style>
+    .large-frame {
+        border: 1px solid #ccc; /* Để thêm viền đen */
+        border-radius: 10px; /* Bo góc */
+        padding: 15px; /* Để tạo khoảng cách giữa nội dung và viền */
+    }
+</style>
+  {{!-- Tính tổng thanh toán  --}}
+<script>
+    // Lấy giá trị tổng tiền hàng và tổng chi phí vận chuyển
+    const totalPriceElement = document.getElementById('total-price');
+    const tongPhiVanChuyenElement = document.getElementById('tong-phi-van-chuyen');
+    const tongThanhToanElement = document.getElementById('tong-thanh-toan');
+
+    // Định nghĩa hàm tính tổng thanh toán
+    function calculateTotalPayment() {
+        const totalPrice = parseFloat(totalPriceElement.textContent.trim());
+        const tongPhiVanChuyen = parseFloat(tongPhiVanChuyenElement.textContent.trim());
+
+        const totalPayment = totalPrice + tongPhiVanChuyen;
+
+        // Cập nhật giá trị tổng thanh toán
+        tongThanhToanElement.textContent = totalPayment.toFixed(2);
+    }
+
+    // Gọi hàm tính tổng thanh toán ban đầu
+    calculateTotalPayment();
+</script>
+
+
+<script>
+    // Lấy danh sách tất cả các dòng sản phẩm
+    const productRows = document.querySelectorAll('.product-row');
+
+    // Định nghĩa biến để lưu trạng thái bắt đầu click
+    let isMouseDown = false;
+
+    // Định nghĩa hàm tính tổng tiền
+    function calculateTotal() {
+        let total = 0;
+
+        productRows.forEach(row => {
+            const giaElement = row.querySelector('.gia');
+            const quantityElement = row.querySelector('.quantity input');
+            const totalElement = row.querySelector('.total-price');
+
+            const gia = parseFloat(giaElement.textContent);
+            const quantity = parseInt(quantityElement.value);
+
+            const subTotal = gia * quantity;
+
+            // Cập nhật giá trị tổng cho mỗi sản phẩm
+            totalElement.textContent = subTotal;
+
+            // Cộng vào tổng tổng cộng
+            total += subTotal;
+        });
+
+        // Hiển thị tổng cộng
+        document.getElementById('total-price').textContent = total;
+    }
+
+    // Gắn sự kiện cho nút cộng và trừ
+    productRows.forEach(row => {
+        const minusButton = row.querySelector('.btn-minus');
+        const plusButton = row.querySelector('.btn-plus');
+        const quantityInput = row.querySelector('.quantity input');
+
+        minusButton.addEventListener('mousedown', () => {
+            isMouseDown = true;
+            setTimeout(() => {
+                if (isMouseDown) {
+                    const quantity = parseInt(quantityInput.value);
+                    if (quantity > 1) {
+                        quantityInput.value = quantity - 1;
+                        calculateTotal();
+                    }
+                }
+            }, 300); // Sử dụng thời gian delay (milliseconds) để kiểm soát double click
+        });
+
+        plusButton.addEventListener('mousedown', () => {
+            isMouseDown = true;
+            setTimeout(() => {
+                if (isMouseDown) {
+                    const quantity = parseInt(quantityInput.value);
+                    quantityInput.value = quantity + 1;
+                    calculateTotal();
+                }
+            }, 300); // Sử dụng thời gian delay (milliseconds) để kiểm soát double click
+        });
+
+        // Sự kiện kết thúc click
+        window.addEventListener('mouseup', () => {
+            isMouseDown = false;
+        });
+
+        // Sự kiện input để theo dõi sự thay đổi của số lượng
+        quantityInput.addEventListener('input', () => {
+            calculateTotal();
+        });
+    });
+
+    // Tính tổng lúc tải trang
+    calculateTotal();
+</script>
+
+
 
 
  

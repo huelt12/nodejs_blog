@@ -12,7 +12,7 @@ router.get('/:slug', detailController.book_frees);
 router.get('/', detailController.detail);
 
 // Định nghĩa endpoint để truy xuất tập tin PDF
-router.get('/getpdf/:filename', (req, res) => {
+router.get('/getpdf/:filename', (req, res) => { 
     const gfs = Grid(conn.db, mongoose.mongo);
     gfs.collection('uploads'); // Tên collection lưu trữ tập tin
   

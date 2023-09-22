@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const User = new Schema({
     username: String,
     email: String,
-    password: String  // Mật khẩu đã mã hóa sẽ được lưu ở đây
+    password: String  
   });
 
 module.exports = mongoose.model('User', User);
