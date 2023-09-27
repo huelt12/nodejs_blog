@@ -1,6 +1,6 @@
 {{!-- <h1>Kiểm tra đơn hàng</h1>
-    <p>Thông tin đơn hàng bạn đã đặt:</p>
-    <div id="order-details">
+<p>Thông tin đơn hàng bạn đã đặt:</p>
+<div id="order-details">
     <ul>
         <li>Họ và tên: {{order.fullName}}</li>
         <li>Email: {{order.email}}</li>
@@ -8,51 +8,63 @@
     </ul>
 </div> --}}
 
-<h1>Các đơn hàng của bạn</h1>
+{{!-- <h1>Đăt hàng thành công</h1>
 <ul action="/checkout/user-orders">
-    {{#each orders}}
     <li>
-        <h2>Đơn hàng {{order._id}}</h2>
-        <p>Họ và tên: {{order.fullName}}</p>
+        <p>Mã đơn hàng: {{order._id}}</p>
+        <p>Người nhận: {{order.fullName}}</p>
         <p>Email: {{order.email}}</p>
-        <!-- Hiển thị thông tin đơn hàng khác tại đây -->
+        <p>Số điện thoại nhận hàng: {{order.phone}}</p>
+        <p>Tỉnh: {{order.province}}</p>
+        <p>Quận/ Huyện/ Thị xã: {{order.street}}</p>
+        <p>Phường/ Thị Trấn: {{order.district}}</p>
+        <p>Địa chỉ nhận hàng cụ thể: {{order.specificAddress}}</p>
     </li>
-    {{/each}}
-</ul>
+</ul> --}}
+{{#if authenticated}}
+            <div class="col-lg-12 table-responsive mb-5">
+                <table class="table table-light table-borderless table-hover text-center mb-0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>Thành tiền</th>
+                            <th>Người nhận</th>
+                            <th>Số điện thoại</th>
+                            <th>Địa chỉ nhận hàng</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="align-middle">
+                        <tr>
+                            <td class="align-middle"><img src="/public/img/product-1.jpg" alt="" style="width: 50px;"> Product Name</td>
+                            <td class="align-middle">150</td>                            
+                            <td class="align-middle">{{order.fullName}}</td>
+                            <td class="align-middle">{{order.phone}}</td>
+                            <td class="align-middle">{{order.specificAddress}}</td>
+                        </tr>                       
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-12 mb-2">
+                <span class="success-text">Đặt hàng thành công</span>
+                <span class="green-check"></span>
+            </div>
+            <style>
+                /* Sử dụng dấu tích xanh trong CSS */
+                .green-check::before {
+                    content: "\2714"; /* Mã Unicode của dấu tích xanh */
+                    color: #00FF00; /* Màu xanh */
+                    font-size: 24px; /* Kích thước font */
+                    margin-right: 10px; /* Khoảng cách với nội dung khác (tuỳ chọn) */
+                }
 
+                .green-check {
+                    display: inline-block; /* Hiển thị trên cùng 1 hàng */
+                }
+                .success-text {
+                    font-size: 20px; /* Kích thước font tăng lên */
+                    font-weight: bold; /* Đặt độ đậm cho chữ */
+                }
+            </style>
 
-{{!-- <script>
-    // Lấy dữ liệu đơn hàng từ URL query parameter
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const orderString = urlParams.get('orderData');
-
-
-if (orderString && orderString !== "undefined") {
-    try {
-        const order = JSON.parse(decodeURIComponent(orderString));
-        
-        // Hiển thị thông tin đơn hàng lên trang "Checkorder"
-        const orderDetailsDiv = document.getElementById('order-details');
-        orderDetailsDiv.innerHTML = `
-            <h2>Thông tin đơn hàng</h2>
-            <ul>
-                <li>Họ và tên: ${order.fullName}</li>
-                <li>Email: ${order.email}</li>
-                <li>Số điện thoại: ${order.phone}</li>
-            </ul>
-            <h3>Sản phẩm:</h3>
-            <ul>
-                ${order.orderItems.map(item => `<li>${item.itemName} (Số lượng: ${item.quantity}, Giá: ${item.price})</li>`).join('')}
-            </ul>
-        `;
-    } catch (error) {
-        console.error('Lỗi khi lấy thông tin đơn hàng từ URL:', error);
-    }
-} else {
-    console.error('Không có thông tin đơn hàng được truyền từ trang Checkout.');
-}
-
-</script> --}}
-
-
+{{/if}}

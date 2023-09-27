@@ -2,7 +2,7 @@ const isAuth = async (req, res, next) => {
   console.log("Auth middleware")
 
   if (!req.session.authenticated) {
-    console.log("abc");
+    // console.log("abc");
     return next(); // Chuyển hướng về trang đăng nhập nếu chưa đăng nhập
   }
 
@@ -19,5 +19,4 @@ module.exports = {
   isAuth
 };
 
-  
 

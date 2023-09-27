@@ -1,3 +1,4 @@
+{{#if authenticated}}
 <!-- Checkout Start -->
     <div class="container-fluid">
         <form id="orderForm" action="/checkout/place-order" method="POST">
@@ -30,9 +31,9 @@
                                     <option value="" selected disabled></option>
                                     <option>Hà Nội</option>
                                     <option>Bắc Giang</option>
-                                    <option>Afghanistan</option>
-                                    <option>Albania</option>
-                                    <option>Algeria</option>
+                                    <option>Hải Phòng</option>
+                                    <option>Nam Định</option>
+                                    <option>Thái Bình</option>
                                 </select>
                             </div>
 
@@ -41,7 +42,7 @@
                                 <input class="form-control" type="text" name="district" id="addressInput">
                             </div>
                             <div class="col-md-6 form-group">
-                                <label>Xã / Phường / Thị Trấn</label>
+                                <label>Phường / Thị Trấn</label>
                                 <input class="form-control" type="text" name="street" id="addressInput">
                             </div>                       
                             <div class="col-md-12 form-group">
@@ -135,7 +136,7 @@
                         </div>
                     </div> 
                 </div>
-                <button type="submit" id="place-order-button"  class="btn btn-block btn-primary font-weight-bold py-3 large-frame" href="/checkorder">ĐẶT HÀNG</button>
+                <button type="submit" id="place-order-button"  class="btn btn-block btn-primary font-weight-bold py-3 large-frame">ĐẶT HÀNG</button>
                     <style>
                         #orderButton {
                             width: 50%; /* Điều chỉnh kích thước chiều ngang theo mong muốn, ví dụ 50% */
@@ -266,7 +267,7 @@
     // Tính tổng lúc tải trang
     calculateTotal();
 </script>
-
+{{/if}}
 
 
 

@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const User = require('../models/User');
+const User = require('../Models/User');
 
 
 const register = async (req, res) => {
@@ -46,6 +46,7 @@ const login = async (req, res) => {
     // Lưu thông tin người dùng vào session hoặc thực hiện các thao tác khác
     // Đánh dấu người dùng đã đăng nhập
     req.session.user = {
+      userId: user._id,
       username: user.username, // Lấy tên người dùng từ cơ sở dữ liệu
       password: user.email,       // Lấy email người dùng từ cơ sở dữ liệu
     }
@@ -69,16 +70,27 @@ const login = async (req, res) => {
     return res.render('auth/login', { error: errorMessage, layout: 'login' }); // Không sử dụng layout
   }
 };
-const logout = (req, res) => {
-  req.session.destroy((err) => {
-    if (err) {
-      console.error('Error destroying session:', err);
-    } else {
-      console.log('Session has been destroyed.');
-    }
-    // Sau khi xóa session, chuyển hướng người dùng đến trang đăng nhập
-    res.redirect('/auth/login');
-  });
+
+const logout = async (req, res) => {
+  try {
+    // Xóa thông tin phiên khi người dùng đăng xuất
+    req.session.destroy(async (err) => {
+      if (err) {
+        console.error('Error destroying session:', err);
+      } else {
+        console.log('Session has been destroyed.');
+        await res.clearCookie();
+        console.log("chay vao day");
+      // Sau khi xóa session, chuyển hướng người dùng đến trang đăng nhập
+        return res.redirect('/auth/login');
+      }
+      // Xóa session cookie
+      
+    });
+  } catch (error) {
+    const errorMessage = 'An error occurred';
+    return res.render('auth/login', { error: errorMessage, layout: 'login' });
+  }
 };
 
 module.exports = {

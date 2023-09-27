@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const Book_free = new Schema({
     name: { type: String, maxLength:255 },
-    description: { type: String, maxLength:600  },
+    description: { type: String, maxLength:600 },
     image: { type: String },
     createdAt: { type: Date, default: Date.now},
     updatedAt: { type: Date, default: Date.now},

@@ -36,8 +36,8 @@ router.get('/login',isAuth, (req, res) => {
 router.post('/login',isAuth, authController.login); 
 
 
-router.get('/logout', isAuth, authController.logout);
-
+// router.get('/logout', isAuth, authController.logout);
+router.get('/logout', authController.logout);
 
 router.get('/', isAuth, (req, res) => {
   // Trang chính chỉ có thể truy cập nếu đã xác thực
@@ -45,9 +45,6 @@ router.get('/', isAuth, (req, res) => {
   res.render('home', { authenticated: isLoggedIn }); // Truyền trạng thái xác thực vào mẫu
 });
  
-
-
-
 module.exports = router;
 
 
