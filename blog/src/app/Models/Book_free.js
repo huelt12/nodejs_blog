@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const Book_free = new Schema({
+    bookId: String,
     name: { type: String, maxLength:255 },
     description: { type: String, maxLength:600 },
     image: { type: String },

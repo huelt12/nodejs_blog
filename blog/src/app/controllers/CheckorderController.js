@@ -17,7 +17,7 @@ class CheckorderController {
         }
 
         // Hiển thị view "checkorder" và truyền thông tin đơn hàng
-        res.render('checkorder', { order });
+        res.render('checkorder', { order, authenticated: req.session.authenticated || false });
     } catch (error) {
         console.error('Lỗi khi hiển thị đơn hàng:', error);
         res.status(500).render('error', { error: 'Đã xảy ra lỗi' });

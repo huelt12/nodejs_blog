@@ -1,13 +1,3 @@
-{{!-- <h1>Kiểm tra đơn hàng</h1>
-<p>Thông tin đơn hàng bạn đã đặt:</p>
-<div id="order-details">
-    <ul>
-        <li>Họ và tên: {{order.fullName}}</li>
-        <li>Email: {{order.email}}</li>
-        <li>Số điện thoại: {{order.phone}}</li>
-    </ul>
-</div> --}}
-
 {{!-- <h1>Đăt hàng thành công</h1>
 <ul action="/checkout/user-orders">
     <li>
@@ -30,14 +20,14 @@
                             <th>Thành tiền</th>
                             <th>Người nhận</th>
                             <th>Số điện thoại</th>
-                            <th>Địa chỉ nhận hàng</th>
+                            <th>Địa chỉ nhận hàng</th> 
                             
                         </tr>
                     </thead>
                     <tbody class="align-middle">
                         <tr>
-                            <td class="align-middle"><img src="/public/img/product-1.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">150</td>                            
+                            <td class="align-middle"><img src="{{course.image}}" alt="" style="width: 50px;"> {{course.name}}</td>
+                            <td class="align-middle">{{course.gia}}</td>                            
                             <td class="align-middle">{{order.fullName}}</td>
                             <td class="align-middle">{{order.phone}}</td>
                             <td class="align-middle">{{order.specificAddress}}</td>

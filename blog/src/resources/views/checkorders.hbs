@@ -27,11 +27,11 @@
                             <th>Đã giao hàng</th>
                         </tr>
                     </thead>
-                    {{#each orders}}
+                    {{#each orders}} 
                     <tbody class="align-middle">
                         <tr>
-                            <td class="align-middle"><img src="/public/img/product-1.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">150</td>                            
+                            <td class="align-middle"><img src="{{course.image}}" alt="" style="width: 50px;">{{course.name}}</td>
+                            <td class="align-middle">{{course.gia}}</td>                            
                             <td class="align-middle">{{this.fullName}}</td>
                             <td class="align-middle">{{this.phone}}</td>
                             <td class="align-middle">{{this.specificAddress}}</td>
