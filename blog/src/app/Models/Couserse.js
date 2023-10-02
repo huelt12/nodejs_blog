@@ -4,7 +4,7 @@ const mongoosePaginate = require('mongoose-paginate-v2');
 const Schema = mongoose.Schema;
 
 const Course = new Schema({
-    bookId: String,
+    courseid: String,
     name: { type: String, maxLength:255 },
     description: { type: String, maxLength:600  },
     image: { type: String },

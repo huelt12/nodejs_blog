@@ -4,11 +4,12 @@ const { mongooseToObject } = require('../../util/mongoose');
 class CheckorderController {
     async showOrder(req, res) {
     try {
-        // Lấy orderId từ session hoặc cookie
+        // Lấy orderId từ session
         const orderID = req.session.orderId;
 
         // Truy vấn cơ sở dữ liệu để lấy thông tin đơn hàng
         const order = await Order.findById(orderID).lean();
+        // const order = await Order.findById(orderID).populate('products').lean();
         // console.log("order");
 
         if (!order) {
@@ -17,7 +18,7 @@ class CheckorderController {
         }
 
         // Hiển thị view "checkorder" và truyền thông tin đơn hàng
-        res.render('checkorder', { order, authenticated: req.session.authenticated || false });
+        res.render('checkorder', { order, authenticated: req.session.authenticated || false  });
     } catch (error) {
         console.error('Lỗi khi hiển thị đơn hàng:', error);
         res.status(500).render('error', { error: 'Đã xảy ra lỗi' });

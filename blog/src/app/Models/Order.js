@@ -3,6 +3,8 @@ const Schema = mongoose.Schema;
 
 // Định nghĩa Schema cho đơn hàng
 const Order = new Schema({
+    courseid: String,
+    gia: String,
     userid: String,
     fullName: String,
     email: String,

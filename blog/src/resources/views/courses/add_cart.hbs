@@ -19,24 +19,24 @@
                                 <img src="{{course.image}}" alt="" style="width: 50px;">
                                 <span style="margin-left: 10px;">{{course.name}}</span>
                             </td>
-                            <td class="align-middle gia giaText" >{{course.gia}}</td>    
-                            <td class="align-middle ">
+                            <td class="align-middle  giaText" id="gia" >{{course.gia}}</td>    
+                            <td class="align-middle">
                                 <div class="input-group quantity mx-auto" style="width: 100px;">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus">
+                                        <button class="btn btn-sm btn-primary btn-minus" id="slminus">
                                             <i class="fa fa-minus"></i>
                                         </button>
                                     </div>
-                                    <input type="text" class="so-luong form-control form-control-sm bg-secondary border-0 text-center quantity" value="1">
+                                    <input id="slvalue" type="text" class="so-luong form-control form-control-sm bg-secondary border-0 text-center quantity" value="1">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
+                                        <button class="btn btn-sm btn-primary btn-plus" id="slplus">
                                             <i class="fa fa-plus"></i>
                                         </button>
                                     </div>
                                 </div>
                             </td>
 
-                            <td class="align-middle giaText total-price "></td>
+                            <td class="align-middle giaText" id="total-price" >{{course.gia}}</td>
 
                             <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
                         </tr>
@@ -57,22 +57,22 @@
                     <div class="border-bottom pb-2">
                         <div class="d-flex justify-content-between mb-3">
                             <h6 >Tổng tiền hàng</h6>
-                            <h6 id="total-price" class="giaText"></h6>
+                            <h6 id="total-price2" class="giaText">{{course.gia}}</h6>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Tổng phí vận chuyển</h6>
-                            <h6 id="giaText" id="tong-phi-van-chuyen">15000</h6>
-                            <script>
+                            <h6 class="giaText" id="tong-phi-van-chuyen">15000</h6>
+                            {{!-- <script>
                                 const giaTuMongoDB = 15000;
                                 const giaDaDinhDang = giaTuMongoDB.toLocaleString('vi-VN');
-                                document.getElementById('giaText').textContent = giaDaDinhDang + ' đ';
-                            </script>
+                                document.getElementById('giaText').textContent = giaDaDinhDang;
+                            </script> --}}
                         </div>
                     </div>
                     <div class="pt-2">
                         <div class="d-flex justify-content-between mt-2">
                             <h5>Tổng thanh toán</h5>
-                            <h5 id="tong-thanh-toan" class="giaText"></h5>
+                            <h5 id="tong-thanh-toan" class="giaText">{{course.gia}}</h5>
                         </div>
                         <a href="/checkout?productName={{course.name}}&productPrice={{course.gia}}" class="btn btn-block btn-primary font-weight-bold my-3 py-3 small-button large-frame">Tiến hành thanh toán</a>
                         <style>
@@ -96,6 +96,7 @@
 
                                 {{!-- Định dạng giá tiền --}}
                                 <script>
+
                                         // Chọn tất cả các phần tử có lớp "giaText"
                                     const giaElements = document.querySelectorAll('.giaText');
 
@@ -107,8 +108,78 @@
                                     });
 
                                 </script> 
+<script>
+    var sumElement = document.getElementById("total-price"); 
+    sumElement.addEventListener("change", function() {
+        alert("abc");
+        sumvalue = parseFloat(sumElement.innerHTML)*1000;
+        var sumElement2 = document.getElementById("total-price2");
+        sumElement2.innerHTML = sumvalue.toLocaleString('vi-VN');
+    })
+</script>
+
+<script>
+    var tongTienHang = document.getElementById("total-price2"); 
+    var tongPhiVanChuyen = 15000; // Số tiền phí vận chuyển mặc định
+
+    function updateTotalThanhToan() {
+        var tongTienHangValue = parseFloat(tongTienHang.textContent.replace(" đ", "").replace(/\./g, "").replace(",", ""));
+        var tongThanhToan = tongTienHangValue + tongPhiVanChuyen;
+
+        var sumElement3 = document.getElementById("tong-thanh-toan");
+        sumElement3.innerHTML = tongThanhToan.toLocaleString('vi-VN');
+    }
+
+    // Lắng nghe sự kiện change cho tổng tiền hàng
+    tongTienHang.addEventListener("change", updateTotalThanhToan);
+
+    // Gọi hàm cập nhật tổng thanh toán khi trang web được tải
+    window.onload = updateTotalThanhToan;
+</script>
 
 
+
+<script>
+    var buttonMinus = document.getElementById("slminus");
+    var buttonPlus = document.getElementById("slplus");
+    function handleClickMinus() {
+        var slvalue = parseFloat(document.getElementById("slvalue").value) - 1;
+        var dongia = parseFloat(document.getElementById("gia").innerHTML);
+        var gia = slvalue * dongia * 1000;
+        var sumElement = document.getElementById("total-price");
+        sumElement.innerHTML = gia.toLocaleString('vi-VN');
+        var sumElement2 = document.getElementById("total-price2");
+        sumElement2.innerHTML = gia.toLocaleString('vi-VN');
+
+        var sumElement3 = document.getElementById("tong-thanh-toan");
+        var currentSum2 = parseFloat(sumElement2.innerHTML);
+        var newSum3Value = currentSum2 * 1000 + 15000;
+        sumElement3.innerHTML = newSum3Value.toLocaleString('vi-VN');
+        console.log(slvalue);
+        console.log(dongia);
+        console.log(gia);
+    }
+    function handleClickPlus() {
+        var sumElement = document.getElementById("total-price");
+        var slvalue = parseFloat(document.getElementById("slvalue").value) + 1;
+        var dongia = parseFloat(document.getElementById("gia").innerHTML);
+        var gia = slvalue * dongia * 1000;
+        sumElement.innerHTML = gia.toLocaleString('vi-VN');
+        var sumElement2 = document.getElementById("total-price2");
+        sumElement2.innerHTML = gia.toLocaleString('vi-VN');
+
+        var sumElement3 = document.getElementById("tong-thanh-toan");
+        var currentSum2 = parseFloat(sumElement2.innerHTML);
+        var newSum3Value = currentSum2 * 1000 + 15000;
+        sumElement3.innerHTML = newSum3Value.toLocaleString('vi-VN');
+        console.log(slvalue);
+        console.log(dongia);
+        console.log(gia);
+    }
+    buttonMinus.addEventListener("click", handleClickMinus);
+    buttonPlus.addEventListener("click", handleClickPlus);
+
+</script>
 
 
 {{/if}}
