@@ -1,57 +1,52 @@
 {{#if authenticated}}
-<!-- Danh sách sản phẩm đã thêm trái tim -->
-<div id="likedProducts" style="display: none;">
-    <h3>Các sản phẩm bạn yêu thích:</h3>
-    <ul id="productList">
-        <!-- Các sản phẩm sẽ được hiển thị ở đây -->
-    </ul>
-</div>
-{{#each hearts}} 
-    <!-- Cart Start -->
-<div class="container-fluid">
-        <div class="row px-xl-5">
-            <div class="col-lg-8 table-responsive mb-5">
-                <table class="table table-light table-borderless table-hover text-center mb-0">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>Sản phẩm</th>
-                            <th>Giá</th>
-                            <th>Mua ngay</th>
-                        </tr>
-                    </thead>
-                    <tbody class="align-middle">
-                        <tr>
-                            {{!-- <td class="align-middle">
-                                <img src= {{course.image}} alt="" style="width: 50px;"> <br>{{course.name}}</td> --}}
-                            <td class="align-middle">
-                                <img src="{{this.image}}" alt="" style="width: 50px;">
-                                <span style="margin-left: 10px;">{{this.name}}</span></td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                    </tbody>
-                </table>
+<h3 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Sách yêu thích của bạn</span></h3>
+<div class="container-fluid pt-1 pb-3">
+    <div class="row px-xl-1"> 
+        {{#each heartInfo}}
+        <div class="col-sm-6 col-lg-3 col-md-4 pb-1">
+            <div class="product-item bg-light mb-4">
+                {{!-- <div class="card card-course-item"> --}} 
+                    <div class="product-img position-relative overflow-hidden">
+                        <a href="/courses/{{this.slug}}">
+                            <img src="{{this.image}}" class="img-fluid w-100 pt-3" alt="{{this.name}}" class="imageInput">                          
+                            {{!-- <div class="product-action">
+                                <a class="btn btn-outline-dark btn-square add-to-cart" href=""><i class="fa fa-shopping-cart"></i></a>
+                                <a class="btn btn-outline-dark btn-square heart-icon" href="" data-sach-id="{{this._id}}"><i class="far fa-heart "></i></a>
+                            </div> --}}
+                        </a> 
+                    </div>  
+                    <div class="text-center py-1">         
+                        <div class="card-body">
+                            <a class="h6 text-decoration-none text-truncate" href="/courses/{{this.slug}}" class="nameInput">{{this.name}}</a>                      
+                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                <p class="card-text giaText" class="giaInput">{{this.gia}} đ</p> 
+                      
+                            </div> 
+                                     
+                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                <a href="/courses/{{this._id}}/add_cart" class="btn btn-primary">Mua ngay</a>
+                            </div> 
+                        </div>
+                    </div> 
+                {{!-- </div> --}}
             </div>
         </div>
+        {{/each}}
+    </div>
 </div>
-{{/each}}
  {{/if}}
 
+                                {{!-- Định dạng giá tiền --}}
+                                <script>
+                                        // Chọn tất cả các phần tử có lớp "giaText"
+                                    const giaElements = document.querySelectorAll('.giaText');
 
+                                    // Lặp qua tất cả các phần tử và áp dụng định dạng
+                                    giaElements.forEach(element => {
+                                        const giaTuMongoDB = parseFloat(element.textContent);
+                                        const giaDaDinhDang = giaTuMongoDB.toLocaleString('vi-VN');
+                                        element.textContent = giaDaDinhDang + ' đ';
+                                    });
+
+                                </script> 
  

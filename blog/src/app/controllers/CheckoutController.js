@@ -5,6 +5,7 @@ const {mongooseToObject} = require('../../util/mongoose');
 class CheckoutController {
  
     index(req, res){
+        console.log(req.body);
         res.render('checkout',{authenticated: req.session.authenticated || false});
     }
 
@@ -12,7 +13,7 @@ class CheckoutController {
     async placeOrder(req, res, next) {
         // console.log("abcd");
 
-        try {
+        try { 
             // Lấy thông tin đặt hàng từ request body
             const {
                 fullName,
@@ -29,7 +30,7 @@ class CheckoutController {
             }
             // Tạo một đối tượng Order để lưu vào MongoDB
             const newOrder = new Order({
-                userid,
+                userid, 
                 fullName,
                 email,
                 phone,

@@ -99,18 +99,22 @@
                 {{!-- <div class="card card-course-item"> --}}
                     <div class="product-img position-relative overflow-hidden">
                         <a href="/courses/{{this.slug}}">
-                            <img src="{{this.image}}" class="img-fluid w-100 pt-3" alt="{{this.name}}">                          
+                            <img src="{{this.image}}" class="img-fluid w-100 pt-3" alt="{{this.name}}" class="imageInput">                          
                             <div class="product-action">
-                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                                <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                <a class="btn btn-outline-dark btn-square add-to-cart" href="" data-sach-id="{{this._id}}"><i class="fa fa-shopping-cart"></i></a>
+                                <a class="btn btn-outline-dark btn-square heart-icon" href="" data-sach-id="{{this._id}}"><i class="far fa-heart "></i></a>
                             </div>
                         </a> 
-                    </div>  
+                    </div>   
                     <div class="text-center py-1">         
                         <div class="card-body">
-                            <a class="h6 text-decoration-none text-truncate" href="/courses/{{this.slug}}">{{this.name}}</a>                      
+                            {{!-- <a class="h6 text-decoration-none text-truncate" href="/courses/{{this.slug}}" class="nameInput">{{this.name}}</a>   --}}
+                            <div class="h6 text-decoration-none text-truncate nameInput">
+                                <a href="/courses/{{this.slug}}">{{this.name}}</a>
+                            </div>
+
                             <div class="d-flex align-items-center justify-content-center mt-2">
-                                <p class="card-text giaText">{{this.gia}} đ</p> 
+                                <p class="card-text giaText" class="giaInput">{{this.gia}} đ</p> 
                       
                             </div> 
                                      
@@ -125,6 +129,61 @@
         {{/each}}
     </div>
 </div>
+
+{{!-- // Xử lý khi click trái tim --}}
+<script>
+    const heartIcon = document.getElementsByClassName('heart-icon');
+    console.log(heartIcon);
+    for (let i = 0 ; i < heartIcon.length; i++) {
+        console.log("1");
+        heartIcon[i].addEventListener('click', async () => {
+        try {
+            // Lấy data-sach-id từ biểu tượng trái tim để biết sách cụ thể
+            const heart = {
+                id: heartIcon[i].getAttribute('data-sach-id'),
+            };
+            console.log(heart);
+            fetch('/heart/add_to_hearts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(heart)
+            })
+        } catch (error) {
+            console.error('Lỗi khi xử lý sự kiện click trái tim:', error);
+        }
+    });
+    } 
+</script>
+{{!-- // Xử lý khi click giỏ hàng --}}
+<script>
+    const addToCart = document.getElementsByClassName('add-to-cart');
+    console.log(addToCart);
+    for (let i = 0 ; i < addToCart.length; i++) {
+        console.log("1");
+        addToCart[i].addEventListener('click', async () => {
+        try {
+            // Lấy data-sach-id từ biểu tượng giỏ hàng để biết sách cụ thể
+            const cart = {
+                id: addToCart[i].getAttribute('data-sach-id'),
+            };
+            console.log(cart);
+            fetch('/cart/add_to_carts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(cart)
+            })
+        } catch (error) {
+            console.error('Lỗi khi xử lý sự kiện click giỏ hàng:', error);
+        }
+    });
+    } 
+</script>
+
+
                                 {{!-- Định dạng giá tiền --}}
                                 <script>
                                         // Chọn tất cả các phần tử có lớp "giaText"
@@ -169,6 +228,7 @@
     </div>
 </div>
 
+{{!-- Phân trang --}}
 <script>
     $(document).ready(function () {
   // Xử lý sự kiện khi người dùng nhấp vào nút "Next"

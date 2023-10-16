@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Heart = new Schema({
+const Cart = new Schema({
     userid: String,
-    id: String, 
+    id: String,
     createdAt: { type: Date, default: Date.now }, 
 });
 
-module.exports = mongoose.model('Heart', Heart);
- 
+module.exports = mongoose.model('Cart', Cart);

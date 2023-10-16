@@ -1,12 +1,14 @@
-const Promotion = require('../Models/Promotion')
+// const Promotion = require('../Models/Promotion')
+const Course = require('../Models/Couserse')
+
 const {mutipleMongooseToObject} = require('../../util/mongoose')
 const {mongooseToObject} = require('../../util/mongoose');
 
-class PromotionController {
+class PromotionController { 
 
     async promotion(req, res, next){
     // Đọc từ BD
-        Promotion.find({})
+        Course.find({isPromotion: true})
          .then(promotions => {         
              res.render('promotion', {
                 promotions: mutipleMongooseToObject(promotions), 
@@ -16,18 +18,35 @@ class PromotionController {
          .catch(next);
     }
 
-    show(req, res, next){
-        Promotion.findOne({slug: req.params.slug})
-            .then(promotion => {
-                res.render('promotions/show', 
-                {promotion: mongooseToObject(promotion),
-                authenticated: req.session.authenticated || false});
-            })
-            .catch(next); 
+    async  show(req, res, next) {
+        try {
+            const slug = req.params.slug;
+            // Lấy thông tin của cuốn sách đã chọn
+            const course = await Course.findOne({ slug }).lean();
+    
+            if (!course) {
+                return res.status(404).send('Không tìm thấy khóa học');
+            }
+    
+            // Tìm các sách cùng tác giả
+            const author = course.author;
+            const authorBooks = await Course.find({ author }).lean();
+
+            // Loại bỏ cuốn sách đã chọn khỏi danh sách
+            const filteredAuthorBooks = authorBooks.filter(book => book.slug !== slug);
+
+            res.render('courses/show', {
+                course: course,
+                authorBooks: filteredAuthorBooks,
+                authenticated: req.session.authenticated || false
+            });
+        } catch (error) {
+            next(error);
+        }
     }
 
     add_cart(req, res, next){
-        Promotion.findById({_id: req.params._id})
+        Course.findById({_id: req.params._id})
             .then(promotion => {
                 res.render('promotions/add_cart', 
                 {promotion: mongooseToObject(promotion), 

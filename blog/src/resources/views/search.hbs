@@ -16,9 +16,13 @@
           </div>
           <div class="text-center py-1">          
                         <div class="card-body">
-                            <a class="h6 text-decoration-none text-truncate" href="/courses/{{this.slug}}">{{this.name}}</a>                      
+                            {{!-- <a class="h6 text-decoration-none text-truncate" href="/courses/{{this.slug}}">{{this.name}}</a>     --}}
+                            <div class="h6 text-decoration-none text-truncate nameInput">
+                                <a href="/courses/{{this.slug}}">{{this.name}}</a>
+                            </div>
+                  
                             <div class="d-flex align-items-center justify-content-center mt-2">
-                                <p class="card-text">{{this.gia}} đ</p>                        
+                                <p class="card-text giaText" class="giaInput">{{this.gia}} đ</p>                        
                             </div>       
                             <div class="d-flex align-items-center justify-content-center mt-2">
                                 <a href="/courses/{{this._id}}/add_cart" class="btn btn-primary">Mua ngay</a>
@@ -34,3 +38,17 @@
   </div>
 </div>
 {{/if}}
+
+                                {{!-- Định dạng giá tiền --}}
+                                <script>
+                                        // Chọn tất cả các phần tử có lớp "giaText"
+                                    const giaElements = document.querySelectorAll('.giaText');
+
+                                    // Lặp qua tất cả các phần tử và áp dụng định dạng
+                                    giaElements.forEach(element => {
+                                        const giaTuMongoDB = parseFloat(element.textContent);
+                                        const giaDaDinhDang = giaTuMongoDB.toLocaleString('vi-VN');
+                                        element.textContent = giaDaDinhDang + ' đ';
+                                    });
+
+                                </script> 

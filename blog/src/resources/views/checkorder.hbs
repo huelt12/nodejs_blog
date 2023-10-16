@@ -14,7 +14,7 @@
 {{#if authenticated}}
             <div class="col-lg-12 table-responsive mb-5">
                 <table class="table table-light table-borderless table-hover text-center mb-0">
-                    <thead class="thead-dark">
+                    <thead>
                         <tr>
                             <th>Sản phẩm</th>
                             <th>Thành tiền</th>
@@ -26,11 +26,11 @@
                     </thead>
                     <tbody class="align-middle">
                         <tr>
-                            <td class="align-middle"><img src="{{course.image}}" alt="" style="width: 50px;"> {{course.name}}</td>
+                            <td class="align-middle"><img src="/public/img/product-1.jpg" alt="" style="width: 50px;"> ProductName</td>
                             <td class="align-middle">{{course.gia}}</td>                            
                             <td class="align-middle">{{order.fullName}}</td>
-                            <td class="align-middle">{{order.phone}}</td>
-                            <td class="align-middle">{{order.specificAddress}}</td>
+                            <td class="align-middle ">{{order.phone}}</td>
+                            <td class="align-middle" style="text-align: center;">{{order.specificAddress}}</td>
                         </tr>                       
                     </tbody>
                 </table>

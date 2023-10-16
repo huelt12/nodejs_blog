@@ -12,7 +12,7 @@
                                 <label>Tên người nhận</label>
                                 <input class="form-control" type="text" name="fullName" id="fullNameInput">
 
-                            </div>
+                            </div> 
                             {{!-- <div class="col-md-6 form-group">
                                 <label>Tên</label>
                                 <input class="form-control" type="text" id="lastNameInput" >
@@ -121,18 +121,18 @@
 
                         <div class="d-flex justify-content-between mb-3">
                             <h6 >Tổng tiền hàng</h6>
-                            <h6 id="total-price"></h6>
+                            <h6 id="total-price2" class="giaText">{{course.gia}}</h6>
                         </div>
 
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Tổng phí vận chuyển</h6>
-                            <h6 id="tong-phi-van-chuyen">15.000</h6>
+                            <h6 id="tong-phi-van-chuyen" class="giaText">15000</h6>
                         </div>
                     </div>
                     <div class="pt-2">
                         <div class="d-flex justify-content-between mt-2">
                             <h5>Tổng thanh toán</h5>
-                            <h5 id="tong-thanh-toan"></h5>
+                            <h5 id="tong-thanh-toan" class="giaText"></h5>
                         </div>
                     </div> 
                 </div>
@@ -158,8 +158,22 @@
     }
 </style>
 
+{{!-- Định dạng giá tiền --}}
 <script>
-    // Xử lý khi click nút "Đặt hàng" tại màn hình Checkout
+
+    // Chọn tất cả các phần tử có lớp "giaText"
+    const giaElements = document.querySelectorAll('.giaText');
+
+    // Lặp qua tất cả các phần tử và áp dụng định dạng
+    giaElements.forEach(element => {
+    const giaTuMongoDB = parseFloat(element.textContent);
+    const giaDaDinhDang = giaTuMongoDB.toLocaleString('vi-VN');
+    element.textContent = giaDaDinhDang ;
+    });
+</script>  
+
+{{!-- // Xử lý khi click nút "Đặt hàng" --}}
+<script>
     const placeOrderButton = document.getElementById('place-order-button');
     placeOrderButton.addEventListener('click', async () => {
         try {
@@ -182,8 +196,37 @@
 
 </script>
 
+{{!-- Cộng 15k đầu tiên  --}}
+{{!-- <script>
+    var tongTienHang = document.getElementById("total-price2"); 
+    var tongPhiVanChuyen = 15000; 
+    function updateTotalThanhToan() {
+        var tongTienHangValue = parseFloat(tongTienHang.textContent.replace(" đ", "").replace(/\./g, "").replace(",", ""));
+        var tongThanhToan = tongTienHangValue + tongPhiVanChuyen;
+
+        var sumElement3 = document.getElementById("tong-thanh-toan");
+        sumElement3.innerHTML = tongThanhToan.toLocaleString('vi-VN');
+    }
+    tongTienHang.addEventListener("change", updateTotalThanhToan);
+
+    window.onload = updateTotalThanhToan;
+</script> --}}
 
 <script>
+    // Lấy giá trị từ biến cartTotalPrice của trang add_cart
+    var cartTotalPrice = parseFloat(document.getElementById("cartTotalPrice").textContent);
+    
+    // Hiển thị giá trị trong phần Chi tiết thanh toán của trang checkout
+    var totalPriceElement = document.getElementById("total-price");
+    totalPriceElement.textContent = cartTotalPrice.toLocaleString('vi-VN');
+
+    var tongPhiVanChuyen = 15000; 
+    var tongThanhToan = cartTotalPrice + tongPhiVanChuyen;
+    var tongThanhToanElement = document.getElementById("tong-thanh-toan");
+    tongThanhToanElement.textContent = tongThanhToan.toLocaleString('vi-VN');
+</script>
+
+{{!-- <script>
     // Lấy danh sách tất cả các dòng sản phẩm
     const productRows = document.querySelectorAll('.product-row');
 
@@ -266,7 +309,7 @@
 
     // Tính tổng lúc tải trang
     calculateTotal();
-</script>
+</script> --}}
 {{/if}}
 
 

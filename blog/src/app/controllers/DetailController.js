@@ -1,11 +1,12 @@
-const Book_free = require('../Models/Book_free')
+// const Book_free = require('../Models/Book_free')
+const Course = require('../Models/Couserse')
 const {mutipleMongooseToObject} = require('../../util/mongoose');
 const {mongooseToObject} = require('../../util/mongoose');
 
 class DetailController {
 
     async detail(req, res, next){
-        Book_free.find()
+        Course.find({isBookfree: true})
              .then(book_frees => {    
                 // console.log(book_frees);     
                  res.render('detail', {
@@ -19,7 +20,7 @@ class DetailController {
     
     async book_frees(req, res, next){
 
-        Book_free.findOne({slug: req.params.slug})
+        Course.findOne({slug: req.params.slug})
             .then(book_free => {
                 // console.log(book_free)
                 // res.render('book_frees', { pdfUrl: book_free.pdf });

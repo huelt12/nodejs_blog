@@ -204,8 +204,24 @@ sub {
 sup {
   top: -.5em; }
 
+thead tr {
+  background-color: #e4e1bf;
+  /* Màu nền của hàng */
+  border-radius: 10px;
+  /* Bo góc */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  /* Hiệu ứng làm mềm mại */ }
+
+th {
+  padding: 10px;
+  /* Thêm khoảng cách giữa nội dung và viền */ }
+
+th:first-child {
+  /* Nếu bạn muốn loại bỏ viền của cột đầu tiên */
+  border: none; }
+
 a {
-  color: #FFD333;
+  color: #0c0c0c;
   text-decoration: none;
   background-color: transparent; }
 
