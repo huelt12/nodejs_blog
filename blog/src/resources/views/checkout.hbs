@@ -129,7 +129,7 @@
                             <h6 id="tong-phi-van-chuyen" class="giaText">15000</h6>
                         </div>
                     </div>
-                    <div class="pt-2">
+                    <div class="pt-2"> 
                         <div class="d-flex justify-content-between mt-2">
                             <h5>Tổng thanh toán</h5>
                             <h5 id="tong-thanh-toan" class="giaText"></h5>
@@ -197,7 +197,7 @@
 </script>
 
 {{!-- Cộng 15k đầu tiên  --}}
-{{!-- <script>
+<script>
     var tongTienHang = document.getElementById("total-price2"); 
     var tongPhiVanChuyen = 15000; 
     function updateTotalThanhToan() {
@@ -210,7 +210,7 @@
     tongTienHang.addEventListener("change", updateTotalThanhToan);
 
     window.onload = updateTotalThanhToan;
-</script> --}}
+</script> 
 
 <script>
     // Lấy giá trị từ biến cartTotalPrice của trang add_cart
@@ -226,7 +226,7 @@
     tongThanhToanElement.textContent = tongThanhToan.toLocaleString('vi-VN');
 </script>
 
-{{!-- <script>
+<script>
     // Lấy danh sách tất cả các dòng sản phẩm
     const productRows = document.querySelectorAll('.product-row');
 
@@ -309,7 +309,7 @@
 
     // Tính tổng lúc tải trang
     calculateTotal();
-</script> --}}
+</script>
 {{/if}}
 
 

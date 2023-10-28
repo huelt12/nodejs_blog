@@ -1,8 +1,9 @@
 const Course = require('../Models/Couserse')
+const Review = require('../Models/Review')
 const {mongooseToObject} = require('../../util/mongoose');
 const {mutipleMongooseToObject} = require('../../util/mongoose');
 
-class CourseController { 
+class CourseController {  
     // GET /courses/:slug
     // show(req, res, next){ 
     //     Course.findOne({slug: req.params.slug})
@@ -48,6 +49,30 @@ class CourseController {
                 res.render('courses/add_cart', {course: mongooseToObject(course), authenticated: req.session.authenticated || false})
             })
             .catch(next);
+    }
+
+    async saveReview(req, res) {
+        try {
+        const { id, fullName, message, rating} = req.body;
+        let userid = "";
+            if (req.session.user) {
+                userid = req.session.user.userId;
+            }
+        // Tạo một đánh giá mới để lưu vào data
+        const newReview = new Review({
+            userid,
+            id,
+            fullName,
+            message,
+            rating,
+        });
+        // Lưu đánh giá vào MongoDB
+        await newReview.save();
+        res.redirect('/courses/show');
+        
+        } catch (error) {
+        next(error);
+        }
     }
 
 }

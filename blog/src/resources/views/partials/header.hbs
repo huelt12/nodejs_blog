@@ -7,7 +7,7 @@
             <div class="col-lg-6 d-none d-lg-block " >
                 <div class="d-inline-flex align-items-center h-100">
                     <a class=" text-body mr-4" href="/gioi_thieu_ve_bookshop">Giới Thiệu</a>
-                    <a class=" text-body mr-4" href="/huong_dan_su_dung_web_bookstore">Hướng Dẫn Sử Dụng</a>
+                    <a class=" text-body mr-4" href="/huong_dan_su_dung_web_bookstore">Hướng Dẫn Đặt Hàng</a>
                     <a class=" text-body mr-4" href="/checkorder/user-orders">Lịch Sử Đơn Hàng</a>
                 </div>
             </div>
@@ -207,28 +207,11 @@
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                             <a href="/heart/sach_yeu_thich_cua_toi" class="btn px-0"> 
                                 <i class="fas fa-heart text-primary"></i>
-                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">
-                                    <span id="totalHearts">0</span>
-                                    <script>
-                                        document.addEventListener('DOMContentLoaded', function() {
-                                            const totalHeartsSpan = document.getElementById('totalHearts');
-                                            const addToHeartButtons = document.querySelectorAll('.btn-outline-dark');
-                                            let totalHearts = 0;
-                                            totalHeartsSpan.textContent = totalHearts;
-                                            addToHeartButtons.forEach(button => {
-                                                button.addEventListener('click', function(event) {
-                                                    event.preventDefault(); 
-                                                    totalHearts++;
-                                                    totalHeartsSpan.textContent = totalHearts;
-                                                });
-                                            });
-                                        });
-                                    </script>
-                                </span>                    
+                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">9</span>                    
                             </a>
                             <a href="/cart/gio_hang_cua_toi" class="btn px-0 ml-3">
                                 <i class="fas fa-shopping-cart text-primary"></i>
-                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">12</span>
+                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">15</span>
                             </a>
                         </div>
                         

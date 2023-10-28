@@ -7,7 +7,7 @@ const Order = new Schema({
     gia: String,
     userid: String,
     fullName: String,
-    email: String,
+    email: String, 
     phone: String,
     province: String,
     district: String,

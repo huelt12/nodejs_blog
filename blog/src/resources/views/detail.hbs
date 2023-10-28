@@ -53,9 +53,9 @@
 {{!-- // Xử lý khi click trái tim --}}
 <script>
     const heartIcon = document.getElementsByClassName('heart-icon');
-    console.log(heartIcon);
+    {{!-- console.log(heartIcon); --}}
     for (let i = 0 ; i < heartIcon.length; i++) {
-        console.log("1");
+        {{!-- console.log("1"); --}}
         heartIcon[i].addEventListener('click', async () => {
         try {
             // Lấy data-sach-id từ biểu tượng trái tim để biết sách cụ thể
@@ -80,9 +80,9 @@
 {{!-- // Xử lý khi click giỏ hàng --}}
 <script>
     const addToCart = document.getElementsByClassName('add-to-cart');
-    console.log(addToCart);
+    {{!-- console.log(addToCart); --}}
     for (let i = 0 ; i < addToCart.length; i++) {
-        console.log("1");
+        {{!-- console.log("1"); --}}
         addToCart[i].addEventListener('click', async () => {
         try {
             // Lấy data-sach-id từ biểu tượng giỏ hàng để biết sách cụ thể

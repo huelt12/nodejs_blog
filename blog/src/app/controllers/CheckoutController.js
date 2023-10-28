@@ -17,7 +17,7 @@ class CheckoutController {
             // Lấy thông tin đặt hàng từ request body
             const {
                 fullName,
-                email,
+                email, 
                 phone,
                 province,
                 district,
@@ -40,7 +40,7 @@ class CheckoutController {
                 specificAddress,
             });
 
-            // // Lấy danh sách các sách từ session
+            // // Lấy danh sách các sách từ session 
             // const selectedCourses = req.session.selectedCourses || [];
 
             // // Gán danh sách các sách vào đơn hàng

@@ -8,4 +8,4 @@ router.get('/search', siteController.search);
 router.get('/', siteController.home);
     
 
-module.exports = router; 
+module.exports = router;  

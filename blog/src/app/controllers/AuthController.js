@@ -43,7 +43,7 @@ const login = async (req, res) => {
     }
 
     // Thực hiện đăng nhập thành công
-    // Lưu thông tin người dùng vào session hoặc thực hiện các thao tác khác
+    // Lưu thông tin người dùng vào session
     // Đánh dấu người dùng đã đăng nhập
     req.session.user = {
       userId: user._id,
