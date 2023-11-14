@@ -1,4 +1,4 @@
-{{#if authenticated}}
+{{!-- {{#if authenticated}} --}}
 {{#if isFirstPage}}
 <!-- Carousel Start -->
     <div class="container-fluid mb-1">
@@ -114,10 +114,10 @@
                             </div>
 
                             <div class="d-flex align-items-center justify-content-center mt-2">
-                                <p class="card-text giaText" class="giaInput">{{this.gia}} đ</p> 
+                                <p class="card-text giaText red-text" class="giaInput">{{this.gia}} đ</p> 
                       
                             </div> 
-                                     
+   
                             <div class="d-flex align-items-center justify-content-center mt-2">
                                 <a href="/courses/{{this._id}}/add_cart" class="btn btn-primary">Mua ngay</a>
                             </div> 
@@ -298,7 +298,7 @@
 
 </script>
 
-{{/if}}
+{{!-- {{/if}} --}}
 
 
 

@@ -3,12 +3,14 @@ const path = require('path')
 const express = require('express');
 const morgan = require('morgan')
 const { engine } = require('express-handlebars');
+const methodOverride = require('method-override');
 
 const route = require('./routers');
 const db = require('./config/db');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+
 // socket
 // const http = require('http');
 // const server = http.createServer(app);
@@ -37,7 +39,7 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 app.use(bodyParser.json());
-
+app.use(methodOverride('_method'));
 
 app.engine('hbs', engine({
     extname : ".hbs" 

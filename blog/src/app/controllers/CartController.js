@@ -71,6 +71,13 @@ class CartController {
             return res.status(500).json({ error: 'Internal Server Error' });
           }
     }
-}
+    delete(req, res, next){
+        const userId = req.session.user ? req.session.user.userId : "";
+
+        Cart.deleteOne({id: req.params.id, userid: userId})
+        .then(() => res.redirect('back'))
+        .catch(next);
+    }
+} 
 
 module.exports = new CartController; 

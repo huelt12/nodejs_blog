@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const Review = new Schema({
+    courseId : String,
     userid : String,
     id: String,
     fullName: { type: String, maxLength:255 }, 

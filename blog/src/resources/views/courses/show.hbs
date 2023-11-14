@@ -1,5 +1,5 @@
 <!-- Shop deatil Start -->
-{{#if authenticated}}
+{{!-- {{#if authenticated}} --}}
     <div class="container-fluid pb-5">
         <div class="row px-xl-1">
             <div class="col-lg-5 mb-30 ">
@@ -65,10 +65,16 @@
                                                         </li>
                                                         
                                                 <div class=" container d-flex align-items-center mb-2 pt-2 ">
-                                                    <p class="oldprice"><div class="sbuttons"><h3 class="font-weight-semi-bold mb-2 giaText">{{course.gia}} đ</h3></div></p>
-                                                    <div class="d-flex align-items-center mb-2 mt-2 px-4  ">                                                        
-                                                        <a href="/courses/{{course._id}}/add_cart" class= "btn btn-primary">Mua ngay</a>
+                                                    <div>
+                                                        <h3 class="with-strike small-text1">{{course.goc}}</h3>
                                                     </div>
+                                                    <p class="oldprice">
+                                                        
+                                                        <div class="sbuttons">
+                                                            <h3 class="font-weight-semi-bold mb-2 giaText red-text" style="margin-top: 8px; margin-buttom: 8px;margin-left: 8px;">{{course.gia}} đ</h3>
+                                                        </div>
+                                                    </p>
+                                                    
                                                 </div>
 
                                                 <div class="d-flex mb-3">
@@ -76,10 +82,10 @@
                                                         <small class="fas fa-star"></small>
                                                         <small class="fas fa-star"></small>
                                                         <small class="fas fa-star"></small>
+                                                        <small class="fas fa-star"></small>
                                                         <small class="fas fa-star-half-alt"></small>
-                                                        <small class="far fa-star"></small>
                                                     </div>
-                                                    <small class="pt-1">(99 Reviews)</small>                  
+                                                    <small class="pt-1">(3 Reviews)</small>                  
                                                     <div data-view-id="pdp_quantity_sold" class=" px-2 styles__StyledQuantitySold-sc-1u1gph7-2 exWbxD">|  Đã bán 1948</div>                                       
                                                 </div>
                                             </div>
@@ -102,8 +108,38 @@
                                 </button>
                             </div>
                         </div> --}}
-                        <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Thêm vào giỏ hàng</button>
+                        <button class="btn btn-primary px-3 add-to-cart" data-sach-id={{course._id}}>
+                            <i class="fa fa-shopping-cart mr-1"></i> Thêm vào giỏ hàng
+                        </button>
+                        <div class="d-flex align-items-center mb-2 mt-2 px-3  ">                                                        
+                            <a href="/courses/{{course._id}}/add_cart" class= "btn btn-primary">Mua ngay</a>
+                        </div>
                     </div>
+<script>
+    const addToCart = document.getElementsByClassName('add-to-cart');
+    console.log(addToCart);
+    for (let i = 0 ; i < addToCart.length; i++) {
+        console.log("1");
+        addToCart[i].addEventListener('click', async () => {
+        try {
+            // Lấy data-sach-id từ biểu tượng giỏ hàng để biết sách cụ thể
+            const cart = {
+                id: addToCart[i].getAttribute('data-sach-id'),
+            };
+            console.log(cart);
+            fetch('/cart/add_to_carts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(cart)
+            })
+        } catch (error) {
+            console.error('Lỗi khi xử lý sự kiện click giỏ hàng:', error);
+        }
+    });
+    } 
+</script>
                     
                     <div class=" container d-flex fVzmdH _9NlEB8">
                         <div class="vKtAFa" style="width: 200px;">
@@ -153,7 +189,20 @@
                             <div class="row ">
                                 <div class=" col-md-6" id="review-container">
                                     <h4 class="mb-4">Các đánh giá cho "{{course.name}}"</h4>
+                                    {{#each reviews}}
                                     <div class="media mb-4">
+                                        <img src="/public/img/image2.jpg" alt="Image" class="avatar-img img-fluid mr-3 mt-1" style="width: 45px;">
+                                        <div class="media-body">
+                                            <h6>{{this.fullName}}</h6>
+                                            <div class="text-primary mb-2">
+                                                {{this.rating}}
+                                                    <i class="fas fa-star"></i>
+                                            </div>
+                                            <p>{{this.message}}</p>
+                                        </div>
+                                    </div>
+                                    {{/each}}
+                                    {{!-- <div class="media mb-4">
                                         <img src="/public/img/image2.jpg" alt="Image" class="avatar-img img-fluid mr-3 mt-1" style="width: 45px;">
                                         <div class="media-body">
                                             <h6>Bảo Uyên<small> - <i>01 Jan 2022</i></small></h6>
@@ -196,7 +245,7 @@
                                             <p>Bìa dày chữ nổi đẹp, sách hay nữa có kèm bookmark giấy dày rất ưng 👍👍 nên mua</p>
                                             <p>Mình thấy review hay nên mua đọc thử xem sao,trên tiktok hay giới thiệu,giá cũng ko quá mắc</p>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
 
 
@@ -245,15 +294,13 @@
                                             }
 
                                         </script>
-
-                                        
                                             <div class="form-group">
-                                                <label for="name">Tên của bạn </label>
+                                                <label>Tên của bạn </label>
                                                 <input type="text" class="form-control" name="fullName" id="fullNameInput">
                                             </div>
                                             <div class="form-group">
-                                                <label for="message">Đánh giá của bạn </label>
-                                                <textarea id="messageInput" name="message" cols="30" rows="5" class="form-control"></textarea>
+                                                <label>Đánh giá của bạn </label>
+                                                <textarea type="text" id="messageInput" name="message" cols="30" rows="5" class="form-control"></textarea>
                                             </div>
                                             {{!-- 
                                             <div class="form-group">
@@ -263,7 +310,7 @@
                                             {{!-- <div class="form-group mb-0">
                                                 <input type="submit" value="Gửi đánh giá" class="btn btn-primary px-3" id="submit-review">
                                             </div> --}}
-                                            <button type="button" id="add-review-button"  class="btn btn-block btn-primary font-weight-bold py-3 ">Gửi đánh giá</button>
+                                            <button type="button" id="add-review-button" data-sach-id={{course._id}}  class="btn btn-block btn-primary font-weight-bold py-3 ">Gửi đánh giá</button>
                                        
                                         {{!-- click đánh giá --}}
                                         <script>
@@ -274,21 +321,26 @@
                                                 const rating = document.getElementById('rating-input').value;
                                                 const fullName = document.getElementById('fullNameInput').value;
                                                 const message = document.getElementById('messageInput').value;
-
+                                                const courseid = addReviewButton.getAttribute('data-sach-id');
+   
                                                 // Tạo một đối tượng dữ liệu FormData
-                                                const formData = new FormData();
-                                                formData.append('rating', rating);
-                                                formData.append('fullName', fullName);
-                                                formData.append('message', message);
-
+                                                const formData = {
+                                                    "rating": rating,
+                                                    "fullName": fullName, 
+                                                    "message": message,
+                                                    "courseId": courseid
+                                                }
                                                 // Gửi dữ liệu đánh giá lên server
+                                                console.log(formData, 'formData');
                                                 fetch('/review/add-review', {
                                                     method: 'POST',
-                                                    body: formData
+                                                    headers: {
+                                                        'Content-Type': 'application/json'
+                                                    },
+                                                    body: JSON.stringify(formData)
                                                 })
                                                 .then(response => response.text())
                                                 .then(data => {
-                                                    {{!-- alert('Gửi đánh giá thành công'); --}}
                                                     alert(data);
                                                     location.reload();
                                                 })
@@ -358,4 +410,4 @@
                                     });
 
                                 </script> 
-{{/if}}
+{{!-- {{/if}} --}}

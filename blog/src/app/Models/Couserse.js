@@ -9,6 +9,7 @@ const Course = new Schema({
     image: { type: String },
     category: { type: String },
     gia: { type: Number },
+    goc: { type: Number },
     isPromotion: {type: Boolean},
     isBookfree: {type: Boolean},
     createdAt: { type: Date, default: Date.now},

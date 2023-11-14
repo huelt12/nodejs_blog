@@ -1,6 +1,6 @@
     <!-- Products Start -->
 
-{{#if authenticated}}
+{{!-- {{#if authenticated}} --}}
 <div class="container-fluid pt-1 pb-3">
     <h3 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">FLASH SALE 20%</span></h3>
     <div class="row px-xl-1">
@@ -24,9 +24,17 @@
                                 <a href="/courses/{{this.slug}}">{{this.name}}</a>
                             </div>
 
-                            <div class="d-flex align-items-center justify-content-center mt-2">
-                                <p class="card-text giaText" class="giaInput">{{this.gia}} đ</p>                        
-                            </div>       
+                            <div class="d-flex align-items-center justify-content-center mt-1" style="height: 20px;">
+                                <p class="card-text giaText red-text giaInput"style="margin-top: 8px; margin-bottom: 8px;margin-right: 10px;margin-left: 10px; ">
+                                    <span class="gia-value" >{{this.gia}} đ</span>   
+                                </p>
+                                <span class="percent-text red-text small-text">-20%</span>
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-center mt-2">                             
+                                <span class="goc-label">gốc:</span>
+                                <p class="card-text giaInput with-strike">{{this.goc}}.000 đ</p>                        
+                            </div>   
                             <div class="d-flex align-items-center justify-content-center mt-2">
                                 <a href="/promotions/{{this._id}}/add_cart" class="btn btn-primary">Mua ngay</a>
                             </div> 
@@ -106,8 +114,9 @@
     });
     } 
 </script>
+
     <!-- Products Start -->
-    <div class="container-fluid pt-1 pb-3">
+    {{!-- <div class="container-fluid pt-1 pb-3">
         <h3 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">FLASH SALE 15%</span></h3>
         <div class="row px-xl-1">
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
@@ -319,6 +328,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Products End -->
-{{/if}}
+{{!-- {{/if}} --}}

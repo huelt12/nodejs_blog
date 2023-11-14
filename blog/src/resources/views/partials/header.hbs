@@ -1,4 +1,4 @@
-{{#if authenticated}}
+{{!-- {{#if authenticated}} --}}
 <link rel="stylesheet" href="/blog/src/resources/scss/app.scss">
 
 <div class="header">
@@ -127,20 +127,12 @@
     </a>
     <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 20px); z-index: 999;">
         <div class="navbar-nav w-100 ">
-            {{!-- <div class="nav-item dropdown dropright">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">VĂN HỌC NƯỚC NGOÀI <i class="fa fa-angle-right float-right mt-1"></i></a>
-                <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                <a href="" class="dropdown-item">TRUYỆN NGẮN</a>
-                <a href="" class="dropdown-item">THƠ / KỊCH</a>
-                <a href="" class="dropdown-item">HỒI KÝ / PHÊ BÌNH</a>
-                </div>
-            </div>   --}}
-            <a href="" class="nav-item nav-link" >Văn Học Nước Ngoài</a>
-            <a href="" class="nav-item nav-link">Tiểu Thuyết</a>
-            <a href="" class="nav-item nav-link">Thiếu Nhi</a>
-            <a href="" class="nav-item nav-link">Ngôn Tình</a>
-            <a href="" class="nav-item nav-link">Song Ngữ</a>
-            <a href="" class="nav-item nav-link">Tâm Lý Học</a>
+            <a href="search?q=văn+học+nước+ngoài" class="nav-item nav-link" >Văn Học Nước Ngoài</a>
+            <a href="search?q=tiểu+thuyết" class="nav-item nav-link">Tiểu Thuyết</a>
+            <a href="search?q=thiếu+nhi" class="nav-item nav-link">Thiếu Nhi</a>
+            <a href="search?q=ngôn+tình" class="nav-item nav-link">Ngôn Tình</a>
+            <a href="search?q=song+ngữ" class="nav-item nav-link">Song Ngữ</a>
+            <a href="search?q=tâm+lý+học" class="nav-item nav-link">Tâm Lý Học</a>
         </div>
     </nav>
 </div>
@@ -150,22 +142,19 @@
     <div class="nav-item dropdown dropright">
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Văn Học Việt Nam <i class="fa fa-angle-right float-right mt-1"></i></a>
         <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-        <a href="" class="dropdown-item">Truyện Ngắn</a>
-        <a href="" class="dropdown-item">Thơ / Kịch</a>
-        <a href="" class="dropdown-item">Hồi Ký / Phê Bình</a>
+        <a href="search?q=truyện+ngắn" class="dropdown-item">Truyện Ngắn</a>
+        <a href="search?q=thơ+kịch" class="dropdown-item">Thơ / Kịch</a>
+        <a href="search?q=hồi+ký" class="dropdown-item">Hồi Ký / Phê Bình</a>
         </div>
     </div>
 </script>
 
 <script>
-        // Compile the Handlebars template
         var dropdownTemplate = Handlebars.compile(document.getElementById("dropdown-template").innerHTML);
 
-        // Render the initial dropdown
         var dropdownHtml = dropdownTemplate();
         document.querySelector(".navbar-nav").insertAdjacentHTML("afterbegin", dropdownHtml);
 
-        // Add click event listener to toggle button
         var toggleButton = document.getElementById("toggleButton");
         toggleButton.addEventListener("click", function() {
             var navbarVertical = document.getElementById("navbar-vertical");
@@ -247,5 +236,5 @@
     }
 </style>
 
-{{/if}}
+{{!-- {{/if}} --}}
 

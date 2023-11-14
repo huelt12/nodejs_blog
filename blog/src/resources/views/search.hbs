@@ -1,10 +1,10 @@
-{{#if authenticated}}
+{{!-- {{#if authenticated}} --}}
 <div class="container-fluid pt-1 pb-3">
   <div class="row px-xl-1">
   {{#if courses.length}}
     {{#each courses}}
       <div class="col-sm-6 col-lg-3 col-md-4 pb-1">
-        <div class="product-item bg-light mb-4">
+        <div class="product-item bg-light mb-4"> 
           <div class="product-img position-relative overflow-hidden">
             <a href="/courses/{{this.slug}}">
               <img src="{{this.image}}" class="img-fluid w-100 pt-3" alt="{{this.name}}">
@@ -37,7 +37,7 @@
     {{/if}}
   </div>
 </div>
-{{/if}}
+{{!-- {{/if}} --}}
 
                                 {{!-- Định dạng giá tiền --}}
                                 <script>

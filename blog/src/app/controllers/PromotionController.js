@@ -31,15 +31,17 @@ class PromotionController {
             // Tìm các sách cùng tác giả
             const author = course.author;
             const authorBooks = await Course.find({ author }).lean();
-
+            const reviews = await Review.find( {courseId: course._id}).lean()
+            console.log(reviews, "reviews");
             // Loại bỏ cuốn sách đã chọn khỏi danh sách
             const filteredAuthorBooks = authorBooks.filter(book => book.slug !== slug);
-
             res.render('courses/show', {
                 course: course,
+                reviews: reviews,
                 authorBooks: filteredAuthorBooks,
                 authenticated: req.session.authenticated || false
             });
+            
         } catch (error) {
             next(error);
         }

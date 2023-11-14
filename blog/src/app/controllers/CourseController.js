@@ -4,18 +4,7 @@ const {mongooseToObject} = require('../../util/mongoose');
 const {mutipleMongooseToObject} = require('../../util/mongoose');
 
 class CourseController {  
-    // GET /courses/:slug
-    // show(req, res, next){ 
-    //     Course.findOne({slug: req.params.slug})
-    //         .then(course => {
-    //             res.render('courses/show', {course: mongooseToObject(course),
-    //                 authenticated: req.session.authenticated || false
-    //             })
-    //         })
-    //         .catch(next); 
-    // }
-
-    
+    // GET /courses/:slug  
     async  show(req, res, next) {
         try {
             const slug = req.params.slug;
@@ -29,12 +18,14 @@ class CourseController {
             // Tìm các sách cùng tác giả
             const author = course.author;
             const authorBooks = await Course.find({ author }).lean();
-
+            const reviews = await Review.find({courseId: course._id}).lean();
             // Loại bỏ cuốn sách đã chọn khỏi danh sách
             const filteredAuthorBooks = authorBooks.filter(book => book.slug !== slug);
-
+            
+            console.log(course, 'course');
             res.render('courses/show', {
                 course: course,
+                reviews: reviews,
                 authorBooks: filteredAuthorBooks,
                 authenticated: req.session.authenticated || false
             });
@@ -51,29 +42,7 @@ class CourseController {
             .catch(next);
     }
 
-    async saveReview(req, res) {
-        try {
-        const { id, fullName, message, rating} = req.body;
-        let userid = "";
-            if (req.session.user) {
-                userid = req.session.user.userId;
-            }
-        // Tạo một đánh giá mới để lưu vào data
-        const newReview = new Review({
-            userid,
-            id,
-            fullName,
-            message,
-            rating,
-        });
-        // Lưu đánh giá vào MongoDB
-        await newReview.save();
-        res.redirect('/courses/show');
-        
-        } catch (error) {
-        next(error);
-        }
-    }
+
 
 }
 

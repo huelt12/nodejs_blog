@@ -3,7 +3,7 @@ const User = require('../Models/User');
 
 
 const register = async (req, res) => {
-  try {
+  try { 
     const { username, email, password } = req.body;
 
     // Kiểm tra xem địa chỉ email đã tồn tại trong cơ sở dữ liệu hay chưa

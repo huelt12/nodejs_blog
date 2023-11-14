@@ -25,34 +25,13 @@
                                     <span style="margin-left: 10px;">{{this.name}}</span>
                                 </td>
                                 <td class="align-middle text-center  giaText" class="giaInput" id="gia" >{{this.gia}}</td>
-                                {{!-- <td class="align-middle"> 
-                                    <div class="input-group quantity mx-auto" style="width: 100px;">
-                                        <div class="input-group-btn">
-                                            <button class="btn btn-sm btn-primary btn-minus" id="slminus">
-                                                <i class="fa fa-minus"></i>
-                                            </button>
-                                        </div>
-                                        <input id="slvalue" type="text" class="so-luong form-control form-control-sm bg-secondary border-0 text-center quantity" value="1">
-                                        <div class="input-group-btn">
-                                            <button class="btn btn-sm btn-primary btn-plus" id="slplus">
-                                                <i class="fa fa-plus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="align-middle text-center giaText" id="total-price" >
-                                    <span id="cartTotalPrice">{{this.gia}}</span>
-                                </td> --}}
-                                
                                 <td class="align-middle" style="text-align: center;">
                                     <div class="d-flex align-items-center justify-content-center mt-1">
                                         <a href="/courses/{{this._id}}/add_cart" class="btn btn-primary">Mua</a>
                                     </div> 
                                 </td>
                                 <td class="align-middle" style="text-align: center;">
-                                    <button class="btn btn-md rounded-circle bg-light border mt-1" >
-                                        <i class="fa fa-times text-danger"></i>
-                                    </button>
+                                    <a class="fa fa-times text-danger" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-book-modal"></a>
                                 </td>
                             </tr>
                             {{/each}}
@@ -63,6 +42,50 @@
         </div>
 
 {{/if}}
+{{!-- Xác nhận xóa sách --}}
+<div id="delete-book-modal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xóa khỏi giỏ hàng</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn chắc chắn muốn xóa cuốn sách này khỏi giỏ hàng?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <button id="btn-delete-book" type="button" class="btn btn-primary">Xóa bỏ</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{!-- form ẩn của xóa --}}
+<form name="delete-book-form" method="POST">    </form>
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        var courseId;
+        var deleteForm = document.forms['delete-book-form'];
+        var btnDeleteBook = document.getElementById('btn-delete-book');
+
+        $('#delete-book-modal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            courseId = button.data('id');
+            console.log(courseId);
+        });
+
+        var btnDeleteBook = document.getElementById('btn-delete-book');
+        btnDeleteBook.onclick = function(){
+            deleteForm.action = '/cart/' + courseId + '?_method=DELETE';
+            
+            deleteForm.submit();
+        } 
+    });
+        
+</script>   
+
 
                                  {{!-- Định dạng giá tiền --}}
                                 <script>

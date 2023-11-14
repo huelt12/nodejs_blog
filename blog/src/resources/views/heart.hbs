@@ -9,12 +9,12 @@
                     <div class="product-img position-relative overflow-hidden">
                         <a href="/courses/{{this.slug}}">
                             <img src="{{this.image}}" class="img-fluid w-100 pt-3" alt="{{this.name}}" class="imageInput">                          
-                            {{!-- <div class="product-action">
-                                <a class="btn btn-outline-dark btn-square add-to-cart" href=""><i class="fa fa-shopping-cart"></i></a>
-                                <a class="btn btn-outline-dark btn-square heart-icon" href="" data-sach-id="{{this._id}}"><i class="far fa-heart "></i></a>
-                            </div> --}}
+                            <div class="product-action">
+                                <a class="btn btn-outline-dark btn-square xoa-icon" href="" data-sach-id="{{this._id}}"><i class="fa fa-times text-danger "></i></a>
+                            </div>
                         </a> 
-                    </div>  
+                    </div> 
+                     
                     <div class="text-center py-1">         
                         <div class="card-body">
                             <a class="h6 text-decoration-none text-truncate" href="/courses/{{this.slug}}" class="nameInput">{{this.name}}</a>                      

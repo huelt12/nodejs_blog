@@ -200,11 +200,27 @@
     line-height: 0;
     vertical-align: baseline;
   }
-  
+  .btn-close {
+    font-size: 1.5rem;
+    color: red; /* Màu của dấu "X" */
+    /* Các thuộc tính CSS tùy chỉnh khác */
+  }
   sub {
     bottom: -.25em;
   }
-  
+  .with-strike {
+    text-decoration: line-through;
+}
+.small-text {
+  font-size: 80%; 
+}
+.small-text1 {
+  font-size: 20px;
+}
+
+.red-text {
+  color: rgb(219, 61, 61);
+}
   sup {
     top: -.5em;
   }
@@ -2441,7 +2457,12 @@
     background-color: #FFD333;
     border-color: #FFD333;
   }
-  
+  .custom-button {
+    background-color: #e9dfa9; /* Màu nền vàng */
+    border: 2px solid #ffd700; /* Viền vàng */
+    color: #000; /* Màu chữ, tùy chỉnh theo nhu cầu */
+}
+
   .btn-primary:hover {
     color: #212529;
     background-color: #ffcb0d;
