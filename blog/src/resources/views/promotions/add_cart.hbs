@@ -1,78 +1,223 @@
 {{#if authenticated}}
-    <!-- Cart Start -->
+    <!-- Cart Start --> 
     <div class="container-fluid">
-        <div class="row px-xl-5">
-            <div class="col-lg-8 table-responsive mb-5">
+        <div class="row  px-xl-5">
+            <div class="col-lg-8 table-responsive mb-5 ">
                 <table class="table table-light table-borderless table-hover text-center mb-0">
-                    <thead class="thead-dark">
+                    <thead>
                         <tr>
+                            <th></th>
                             <th>Sản phẩm</th>
                             <th>Giá</th>
                             <th>Số lượng</th>
                             <th>Tổng</th>
-                            <th>Xóa</th>
+                            {{!-- <th>Xóa</th> --}}
                         </tr>
-                    </thead>
-                    <tbody class="align-middle">
-                        <tr>
-                            <td class="align-middle">
+                    </thead> 
+                    <tbody class="align-middle large-frame">
+                        <tr class="product-row">
+                            <td class="align-middle" style="text-align: center;">
                                 <img src="{{promotion.image}}" alt="" style="width: 50px;">
-                                <span style="margin-left: 10px;">{{promotion.name}}</span></td>
-                            <td class="align-middle">$150</td>
+                            </td>
+                            <td class="align-middle">
+                                <span style="margin-left: 10px;">{{promotion.name}}</span>
+                            </td>
+                            <td class="align-middle  giaText" id="gia" >{{promotion.gia}}</td>    
                             <td class="align-middle">
                                 <div class="input-group quantity mx-auto" style="width: 100px;">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
+                                        <button class="btn btn-sm btn-primary btn-minus" id="slminus">
+                                            <i class="fa fa-minus"></i>
                                         </button>
                                     </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
+                                    <input id="slvalue" type="text" class="so-luong form-control form-control-sm bg-secondary border-0 text-center quantity" value="1">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
+                                        <button class="btn btn-sm btn-primary btn-plus" id="slplus">
                                             <i class="fa fa-plus"></i>
                                         </button>
                                     </div>
                                 </div>
                             </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
+
+                            <td class="align-middle giaText" id="total-price" >
+                                <span id="cartTotalPrice">{{promotion.gia}}</span>
+                            </td>
+
+                            {{!-- <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td> --}}
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="col-lg-4">
-                <form class="mb-30" action="">
-                    <div class="input-group">
+            <div class="col-lg-4 ">
+                {{!-- <form class="mb-30 " action="">
+                    <div class="input-group  ">
                         <input type="text" class="form-control border-0 p-4" placeholder="Nhập mã giảm ...">
-                        <div class="input-group-append">
+                        <div class="input-group-append ">
                             <button class="btn btn-primary">Áp dụng mã </button>
                         </div>
                     </div>
-                </form>
+                </form> --}}
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Chi Tiết Thanh Toán</span></h5>
-                <div class="bg-light p-30 mb-5">
+                <div class="bg-light p-30 mb-5 large-frame">
                     <div class="border-bottom pb-2">
                         <div class="d-flex justify-content-between mb-3">
-                            <h6>Tổng tiền hàng</h6>
-                            <h6>$150</h6>
+                            <h6 >Tổng tiền hàng</h6>
+                            <h6 id="total-price2" class="giaText">{{promotion.gia}}</h6>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Tổng phí vận chuyển</h6>
-                            <h6 class="font-weight-medium">$10</h6>
+                            <h6 class="giaText" id="tong-phi-van-chuyen">15000</h6>
+                            {{!-- <script>
+                                const giaTuMongoDB = 15000;
+                                const giaDaDinhDang = giaTuMongoDB.toLocaleString('vi-VN');
+                                document.getElementById('giaText').textContent = giaDaDinhDang;
+                            </script> --}}
                         </div>
                     </div>
                     <div class="pt-2">
                         <div class="d-flex justify-content-between mt-2">
                             <h5>Tổng thanh toán</h5>
-                            <h5>$160</h5>
+                            <h5 id="tong-thanh-toan" class="giaText">{{promotion.gia}}</h5>
                         </div>
-                        <a href="/checkout" class="btn btn-block btn-primary font-weight-bold my-3 py-3">Tiến hành thanh toán</a>
+                        <a href="/checkout?productName={{promotion.name}}&productPrice={{promotion.gia}}" class="btn btn-block btn-primary font-weight-bold my-3 py-3 small-button large-frame">Tiến hành thanh toán</a>
+                        {{!-- <a href="#" id="paycheck" class="btn btn-block btn-primary font-weight-bold my-3 py-3 small-button large-frame">Tiến hành thanh toán</a> --}}
+
+                        <style>
+                            .small-button {
+                                padding: 8px 5px; /* Điều chỉnh kích thước padding theo mong muốn */
+                            }
+                        </style>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Cart End -->
+<style>
+    .large-frame {
+        border: 1px solid #ccc; /* Để thêm viền đen */
+        border-radius: 10px; /* Bo góc */
+        padding: 15px; /* Để tạo khoảng cách giữa nội dung và viền */
+    }
+</style>
+
+                                {{!-- Định dạng giá tiền --}}
+                                <script>
+
+                                        // Chọn tất cả các phần tử có lớp "giaText"
+                                    const giaElements = document.querySelectorAll('.giaText');
+
+                                    // Lặp qua tất cả các phần tử và áp dụng định dạng
+                                    giaElements.forEach(element => {
+                                        const giaTuMongoDB = parseFloat(element.textContent);
+                                        const giaDaDinhDang = giaTuMongoDB.toLocaleString('vi-VN');
+                                        element.textContent = giaDaDinhDang ;
+                                    });
+
+                                </script> 
+<script>
+    var sumElement = document.getElementById("total-price"); 
+    sumElement.addEventListener("change", function() {
+        alert("abc");
+        sumvalue = parseFloat(sumElement.innerHTML)*1000;
+        var sumElement2 = document.getElementById("total-price2");
+        sumElement2.innerHTML = sumvalue.toLocaleString('vi-VN');
+    })
+</script>
+
+<script>
+    const paycheck = document.getElementById('paycheck');
+    console.log(paycheck);
+    console.log("abc");
+    paycheck.addEventListener('click', async (event) => {
+        try {
+            // Lấy data-sach-id từ biểu tượng trái tim để biết sách cụ thể
+            event.preventDefault();
+            const pay = {
+                total_price2: parseFloat(document.getElementById('total-price2')),
+                tong_thanh_toan: parseFloat(document.getElementById('tong-thanh-toan')),
+            };
+            fetch('/checkout', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(pay)
+            })
+        } catch (error) {
+            console.error('Lỗi khi xử lý sự kiện click trái tim:', error);
+        }
+    });
+    
+</script>
+
+
+
+{{!-- Cộng 15k đầu tiên  --}}
+<script>
+    var tongTienHang = document.getElementById("total-price2"); 
+    var tongPhiVanChuyen = 15000; 
+    function updateTotalThanhToan() {
+        var tongTienHangValue = parseFloat(tongTienHang.textContent.replace(" đ", "").replace(/\./g, "").replace(",", ""));
+        var tongThanhToan = tongTienHangValue + tongPhiVanChuyen;
+
+        var sumElement3 = document.getElementById("tong-thanh-toan");
+        sumElement3.innerHTML = tongThanhToan.toLocaleString('vi-VN');
+    }
+    tongTienHang.addEventListener("change", updateTotalThanhToan);
+
+    window.onload = updateTotalThanhToan;
+</script>
+
+
+
+<script>
+    var buttonMinus = document.getElementById("slminus");
+    var buttonPlus = document.getElementById("slplus");
+    function handleClickMinus() {
+        var slvalue = parseFloat(document.getElementById("slvalue").value) - 1;
+        var dongia = parseFloat(document.getElementById("gia").innerHTML);
+        var gia = slvalue * dongia * 1000;
+        var sumElement = document.getElementById("total-price");
+        sumElement.innerHTML = gia.toLocaleString('vi-VN');
+        var sumElement2 = document.getElementById("total-price2");
+        sumElement2.innerHTML = gia.toLocaleString('vi-VN');
+
+        var sumElement3 = document.getElementById("tong-thanh-toan");
+        var currentSum2 = parseFloat(sumElement2.innerHTML);
+        var newSum3Value = currentSum2 * 1000 + 15000;
+        sumElement3.innerHTML = newSum3Value.toLocaleString('vi-VN');
+        console.log(slvalue);
+        console.log(dongia);
+        console.log(gia);
+    }
+    function handleClickPlus() {
+        var sumElement = document.getElementById("total-price");
+        var slvalue = parseFloat(document.getElementById("slvalue").value) + 1;
+        var dongia = parseFloat(document.getElementById("gia").innerHTML);
+        var gia = slvalue * dongia * 1000;
+        sumElement.innerHTML = gia.toLocaleString('vi-VN');
+        var sumElement2 = document.getElementById("total-price2");
+        sumElement2.innerHTML = gia.toLocaleString('vi-VN');
+
+        var sumElement3 = document.getElementById("tong-thanh-toan");
+        var currentSum2 = parseFloat(sumElement2.innerHTML);
+        var newSum3Value = currentSum2 * 1000 + 15000;
+        sumElement3.innerHTML = newSum3Value.toLocaleString('vi-VN');
+        console.log(slvalue);
+        console.log(dongia);
+        console.log(gia);
+    }
+    buttonMinus.addEventListener("click", handleClickMinus);
+    buttonPlus.addEventListener("click", handleClickPlus);
+
+</script>
+
+<script>
+    var cartTotalPrice = parseFloat(document.getElementById("cartTotalPrice").textContent);
+</script>
+
 {{/if}}
+
 
  

@@ -31,21 +31,42 @@
                     {{#each orders}} 
                     <tbody class="align-middle">
                         <tr>
-                            <td class="align-middle"><img src="{{course.image}}" alt="" style="width: 50px;">{{course.name}}</td>
-                            <td class="align-middle text-center">{{course.gia}}</td>                            
+                            <td class="align-middle"><img src="/public/img/product-4.jpg" alt="" style="width: 50px;">Kế toán vỉa hè</td>
+                            <td class="align-middle text-center">58.000</td>                            
                             <td class="align-middle">{{this.fullName}}</td>
                             <td class="align-middle text-center">{{this.phone}}</td>
                             <td class="align-middle">{{this.specificAddress}}</td>
                             <td class="align-middle text-center" ><span class="green-check"></span></td>
-                            <style>
+                            
+                        </tr>  
+
+                        <tr>
+                            <td class="align-middle"><img src="/public/img/product-5.jpg" alt="" style="width: 50px;">Tâm lý học về tiền</td>
+                            <td class="align-middle text-center">142.000</td>                            
+                            <td class="align-middle">{{this.fullName}}</td>
+                            <td class="align-middle text-center">{{this.phone}}</td>
+                            <td class="align-middle">{{this.specificAddress}}</td>
+                            <td class="align-middle text-center" ><span class="green-check"></span></td>
+                            
+                        </tr>  
+
+                        <tr>
+                            <td class="align-middle"><img src="/public/img/product-2.jpg" alt="" style="width: 50px;">Cây cam ngọt của tôi</td>
+                            <td class="align-middle text-center">73.000</td>                            
+                            <td class="align-middle">{{this.fullName}}</td>
+                            <td class="align-middle text-center">{{this.phone}}</td>
+                            <td class="align-middle">{{this.specificAddress}}</td>
+                            <td class="align-middle text-center" ><span class="green-check"></span></td>
+                            
+                        </tr>  
+                        <style>
                                 .green-check::before {
                                     content: "\2714"; /* Mã Unicode của dấu tích xanh */
                                     color: #00FF00; /* Màu xanh */
                                     font-size: 24px; /* Kích thước font */
                                     margin-right: 10px; /* Khoảng cách với nội dung khác (tuỳ chọn) */
                                 }
-                            </style>
-                        </tr>                       
+                        </style>                     
                     </tbody>
                     {{/each}}
                 </table>

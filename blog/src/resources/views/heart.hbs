@@ -10,11 +10,10 @@
                         <a href="/courses/{{this.slug}}">
                             <img src="{{this.image}}" class="img-fluid w-100 pt-3" alt="{{this.name}}" class="imageInput">                          
                             <div class="product-action">
-                                <a class="btn btn-outline-dark btn-square xoa-icon" href="" data-sach-id="{{this._id}}"><i class="fa fa-times text-danger "></i></a>
+                                <a class="btn btn-outline-dark btn-square xoa-icon" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-book-modal"><i class="fa fa-times text-danger "></i></a>
                             </div>
                         </a> 
-                    </div> 
-                     
+                    </div>  
                     <div class="text-center py-1">         
                         <div class="card-body">
                             <a class="h6 text-decoration-none text-truncate" href="/courses/{{this.slug}}" class="nameInput">{{this.name}}</a>                      
@@ -35,6 +34,49 @@
     </div>
 </div>
  {{/if}}
+ {{!-- Xác nhận xóa sách --}}
+<div id="delete-book-modal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xóa khỏi giỏ hàng</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn chắc chắn muốn xóa cuốn sách này khỏi mục yêu thích?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <button id="btn-delete-book" type="button" class="btn btn-primary">Xóa bỏ</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{!-- form ẩn của xóa --}}
+<form name="delete-book-form" method="POST">    </form>
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        var courseId;
+        var deleteForm = document.forms['delete-book-form'];
+        var btnDeleteBook = document.getElementById('btn-delete-book');
+
+        $('#delete-book-modal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            courseId = button.data('id');
+            console.log(courseId);
+        });
+
+        var btnDeleteBook = document.getElementById('btn-delete-book');
+        btnDeleteBook.onclick = function(){
+            deleteForm.action = '/heart/' + courseId + '?_method=DELETE';
+            
+            deleteForm.submit();
+        } 
+    });
+        
+</script> 
 
                                 {{!-- Định dạng giá tiền --}}
                                 <script>

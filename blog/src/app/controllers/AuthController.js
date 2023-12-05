@@ -6,7 +6,7 @@ const register = async (req, res) => {
   try { 
     const { username, email, password } = req.body;
 
-    // Kiểm tra xem địa chỉ email đã tồn tại trong cơ sở dữ liệu hay chưa
+    // Kiểm tra xem địa chỉ email đã tồn tại trong cơ sở dữ liệu chưa
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.render('auth/register', { error: 'Email đã tồn tại. Vui lòng đăng ký tài khoản bằng email khác!', layout: 'register' });
@@ -54,7 +54,7 @@ const login = async (req, res) => {
     // Điều hướng đến trang sau khi đăng nhập thành công
     // return res.render("home")
    
-    await req.session.save();
+    await req.session.save();// Lưu lại trang thái sesion
     return res.redirect("/");
 
     //return res.redirect(`/?authenticated=${req.session.authenticated}`)
@@ -76,9 +76,9 @@ const logout = async (req, res) => {
     // Xóa thông tin phiên khi người dùng đăng xuất
     req.session.destroy(async (err) => {
       if (err) {
-        console.error('Error destroying session:', err);
+        console.error('Lỗi xóa session:', err);
       } else {
-        console.log('Session has been destroyed.');
+        console.log('Session đã được xóa.');
         await res.clearCookie();
         console.log("chay vao day");
       // Sau khi xóa session, chuyển hướng người dùng đến trang đăng nhập

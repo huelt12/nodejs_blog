@@ -47,8 +47,8 @@ class CartController {
             }
             return res.json({ message: 'Sách đã được thêm vào "carts" thành công.' });
         } catch (error) {
-            console.error('Lỗi khi thêm sách vào "carts":', error);
-            return res.status(500).json({ error: 'Lỗi khi thực hiện yêu cầu.' });
+            console.error('Lỗi khi thêm sách vào carts', error);
+            return res.status(500).json({ error: 'Lỗi khi thực hiện yêu cầu' });
         }     
     }
     async getAllcarts(req, res, next) {

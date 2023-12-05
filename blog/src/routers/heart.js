@@ -9,4 +9,7 @@ router.get('/sach_yeu_thich_cua_toi', heartController.getAllhearts);
 // Tạo tuyến đường để thêm sách vào data
 router.post('/add_to_hearts', heartController.addToHeart);
 
+router.delete('/:id', heartController.delete);
+
+
 module.exports = router;     

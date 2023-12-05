@@ -7,7 +7,7 @@
             <div class="col-lg-6 d-none d-lg-block " >
                 <div class="d-inline-flex align-items-center h-100">
                     <a class=" text-body mr-4" href="/gioi_thieu_ve_bookshop">Giới Thiệu</a>
-                    <a class=" text-body mr-4" href="/huong_dan_su_dung_web_bookstore">Hướng Dẫn Đặt Hàng</a>
+                    <a class=" text-body mr-4" href="/huong_dan_dat_hang">Hướng Dẫn Đặt Hàng</a>
                     <a class=" text-body mr-4" href="/checkorder/user-orders">Lịch Sử Đơn Hàng</a>
                 </div>
             </div>
@@ -220,9 +220,7 @@
 
     // Kiểm tra xem URL có khớp với http://localhost:3000/bookfree/detail/{{this.slug}} không
     if (currentURL.indexOf("http://localhost:3000/bookfree/detail/") !== -1) {
-        // Kiểm tra giá trị của slug
-        if (slug === "your-slug-value-here") { // Thay thế "your-slug-value-here" bằng giá trị slug bạn muốn kiểm tra
-            // Đặt lớp CSS cho phần header
+        if (slug === "your-slug-value-here") { 
             var header = document.querySelector(".header");
             if (header) {
                 header.classList.add("hidden");

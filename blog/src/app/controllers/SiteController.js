@@ -76,7 +76,11 @@ class SiteController {
             authenticated: req.session.authenticated || false
         });
     }
-    
+    hddh(req, res){
+      res.render('hddh', {
+          authenticated: req.session.authenticated || false
+      });
+  }
 }
 
 module.exports = new SiteController;

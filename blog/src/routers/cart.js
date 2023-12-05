@@ -11,4 +11,4 @@ router.use('/slug', cartController.show);
 router.get('/', cartController.index);
 
  
-module.exports = router; 
+module.exports = router;  

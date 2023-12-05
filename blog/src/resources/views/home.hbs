@@ -250,7 +250,7 @@
   // Hàm để tải dữ liệu trang bằng AJAX
   function loadPage(page) {
     $.ajax({
-      url: `/?page=${page}`, // Điều hướng đến endpoint trang của bạn với trang cụ thể
+      url: `/?page=${page}`, // Điều hướng đến endpoint với trang cụ thể
       type: 'GET',
       success: function (data) {
         // Cập nhật giao diện với dữ liệu mới từ server
