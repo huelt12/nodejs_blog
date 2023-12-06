@@ -231,7 +231,7 @@
 {{!-- Phân trang --}}
 <script>
     $(document).ready(function () {
-  // Xử lý sự kiện khi người dùng nhấp vào nút "Next"
+  // Xử lý sự kiện khi ấn vào nút nẽtx
   $('#next-button').click(function (e) {
     e.preventDefault(); // Ngăn chặn sự kiện mặc định
     // Lấy trang hiện tại và tải trang tiếp theo bằng AJAX
@@ -239,7 +239,7 @@
     loadPage(currentPage + 1);
   });
 
-  // Xử lý sự kiện khi người dùng nhấp vào nút "Previous"
+  // Xử lý sự kiện khi ấn vào nút "Previous"
   $('#prev-button').click(function (e) {
     e.preventDefault(); // Ngăn chặn sự kiện mặc định
     // Lấy trang hiện tại và tải trang trước đó bằng AJAX
@@ -254,7 +254,7 @@
       type: 'GET',
       success: function (data) {
         // Cập nhật giao diện với dữ liệu mới từ server
-        // Ví dụ: cập nhật danh sách khóa học
+        // Ví dụ: cập nhật danh sách sách
         updateCourses(data.courses);
 
         // Cập nhật trang hiện tại và các nút "Next" và "Previous"
@@ -276,16 +276,16 @@
     });
   }
 
-  // Hàm để cập nhật danh sách khóa học trong giao diện
+  // Hàm để cập nhật danh sách sáchtrong giao diện
   function updateCourses(courses) {
-    // Xóa danh sách khóa học hiện có
+    // Xóa danh sách sách hiện có
     $('#course-list').empty();
 
-    // Thêm các khóa học mới vào danh sách
+    // Thêm các sách mới vào danh sách
     courses.forEach(function (course) {
       const courseHtml = `
         <div class="col-sm-6 col-lg-3 col-md-4 pb-1">
-          <!-- Điều chỉnh mã HTML để hiển thị thông tin khóa học -->
+          <!-- Điều chỉnh HTML để hiển thị thông tin sách -->
         </div>
       `;
       $('#course-list').append(courseHtml);

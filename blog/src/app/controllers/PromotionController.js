@@ -25,7 +25,7 @@ class PromotionController {
             const course = await Course.findOne({ slug }).lean();
     
             if (!course) {
-                return res.status(404).send('Không tìm thấy khóa học');
+                return res.status(404).send('Không tìm thấy sách');
             }
     
             // Tìm các sách cùng tác giả

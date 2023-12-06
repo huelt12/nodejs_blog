@@ -30,11 +30,11 @@ class CheckorderController {
         console.log("userId get all order");
         console.log(userId);
         try {
-            // Sử dụng Model để tìm các đơn hàng có userId tương ứng
+            // Dùng Model tìm các đơn hàng có userId cùng
             // const orders = await Order.find({ userId });
             const orders = await Order.find({ userid: userId }).lean();
             console.log(orders);
-            // return res.json(orders); // Ví dụ: Trả về các đơn hàng dưới dạng JSON
+            // return res.json(orders); // Trả về các đơn hàng dưới dạng JSON
             res.render('checkorders', { orders, authenticated: req.session.authenticated || false }); 
 
           } catch (error) {

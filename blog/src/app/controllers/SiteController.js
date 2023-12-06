@@ -9,18 +9,18 @@ const Handlebars = require('handlebars');
 class SiteController {
   async home(req, res) {
       try {
-          // Truy vấn cơ sở dữ liệu để lấy danh sách khóa học
+          // Truy vấn cơ sở dữ liệu để lấy danh sách sacsh
           const page = req.query.page || 1; // Lấy trang hiện tại từ query string, mặc định là trang 1
           const options = {
               page: page, // Trang hiện tại
-              limit: 12, // Số lượng khóa học trên mỗi trang
+              limit: 12, // Số lượng sacsh trên mỗi trang
           };
-            // Tạo biến isFirstPage dựa trên giá trị của page
+            // Tạo isFirstPage dựa trên page
             const isFirstPage = page === 1;
 
           const courses = await Course.paginate({}, options);
 
-          // 1. Tạo một bản sao dự phòng cho dữ liệu khóa học
+          // Tạo bản sao dự phòng cho dữ liệu sách
           const coursesCopy = mutipleMongooseToObject(courses.docs);
 
           res.render('home', {

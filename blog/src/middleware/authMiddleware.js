@@ -3,7 +3,7 @@ const isAuth = async (req, res, next) => {
 
   if (!req.session.authenticated) {
     // console.log("abc");
-    return next(); // Chuyển hướng về trang đăng nhập nếu chưa đăng nhập
+    return next(); // Chuyển lại vềs đăng nhập nếu chưa đăng nhập
   }
 
   // check logic đúng, truyển tham số xuống dưới

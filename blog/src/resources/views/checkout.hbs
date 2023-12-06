@@ -142,9 +142,9 @@
             <button type="submit" id="place-order-button"  class="btn btn-block btn-primary font-weight-bold py-3 large-frame">ĐẶT HÀNG</button>
                     <style>
                         #orderButton {
-                            width: 50%; /* Điều chỉnh kích thước chiều ngang theo mong muốn, ví dụ 50% */
-                            margin: 0 auto; /* Để căn giữa nút theo chiều ngang */
-                            display: block; /* Để đảm bảo nút nằm trên một dòng riêng biệt */
+                            width: 50%; 
+                            margin: 0 auto; 
+                            display: block;
                         }
                     </style>
         </div>
@@ -153,9 +153,9 @@
     <!-- Checkout End -->
 <style>
     .large-frame {
-        border: 1px solid #ccc; /* Để thêm viền đen */
+        border: 1px solid #ccc; 
         border-radius: 10px; /* Bo góc */
-        padding: 20px; /* Để tạo khoảng cách giữa nội dung và viền */
+        padding: 20px;
     }
 </style>
 
@@ -183,11 +183,10 @@
                 fullName: document.getElementById('fullNameInput').value,
                 email: document.getElementById('emailInput').value,
                 phone: document.getElementById('phoneInput').value,
-                // Thêm các trường thông tin khác từ trang Checkout
-                // Ví dụ: province, district, street, specificAddress, ...
+                
             };
             
-            // Chuyển dữ liệu đơn hàng sang trang "Checkorder" thông qua URL query parameter
+            // Chuyển dữ liệu đơn hàng sang Checkorder thông qua URL
             const queryString = `?orderData=${encodeURIComponent(JSON.stringify(order))}`;
             window.location.href = `/checkorder${queryString}`;
         } catch (error) {
@@ -228,7 +227,6 @@
 </script>
 
 <script>
-    // Lấy danh sách tất cả các dòng sản phẩm
     const productRows = document.querySelectorAll('.product-row');
 
     // Định nghĩa biến để lưu trạng thái bắt đầu click

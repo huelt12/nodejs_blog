@@ -191,11 +191,15 @@
                                     <h4 class="mb-4">Các đánh giá cho "{{course.name}}"</h4>
                                     {{#each reviews}}
                                     <div class="media mb-4">
-                                        <img src="/public/img/image2.jpg" alt="Image" class="avatar-img img-fluid mr-3 mt-1" style="width: 45px;">
+                                        <img src="/public/img/user.jpg" alt="Image" class="avatar-img img-fluid mr-3 mt-1" style="width: 45px;">
                                         <div class="media-body">
                                             <h6>{{this.fullName}}</h6>
                                             <div class="text-primary mb-2">
-                                                {{this.rating}}
+                                                {{!-- {{this.rating}} --}}
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
                                                     <i class="fas fa-star"></i>
                                             </div>
                                             <p>{{this.message}}</p>
@@ -203,7 +207,7 @@
                                     </div>
                                     {{/each}}
                                     <div class="media mb-4">
-                                        <img src="/public/img/image2.jpg" alt="Image" class="avatar-img img-fluid mr-3 mt-1" style="width: 45px;">
+                                        <img src="/public/img/user.jpg" alt="Image" class="avatar-img img-fluid mr-3 mt-1" style="width: 45px;">
                                         <div class="media-body">
                                             <h6>Bảo Uyên<small> - <i>01 Jan 2022</i></small></h6>
                                             <div class="text-primary mb-2">
@@ -218,7 +222,7 @@
                                         </div>
                                     </div>
                                     <div class="media mb-4">
-                                        <img src="/public/img/image1.jpg" alt="Image" class="avatar-img img-fluid mr-3 mt-1" style="width: 45px;">
+                                        <img src="/public/img/user.jpg" alt="Image" class="avatar-img img-fluid mr-3 mt-1" style="width: 45px;">
                                         <div class="media-body">
                                             <h6>Thanh Hải<small> - <i>06 August 2022</i></small></h6>
                                             <div class="text-primary mb-2">
@@ -233,7 +237,7 @@
                                         </div>
                                     </div>
                                     <div class="media mb-4">
-                                        <img src="/public/img/image3.jpg" alt="Image" class="avatar-img img-fluid mr-3 mt-1" style="width: 45px;">
+                                        <img src="/public/img/user.jpg" alt="Image" class="avatar-img img-fluid mr-3 mt-1" style="width: 45px;">
                                         <div class="media-body">
                                             <h6>Lan Hương<small> - <i>15 Dec 2021</i></small></h6>
                                             <div class="text-primary mb-2">
@@ -312,7 +316,10 @@
                                                 <input type="submit" value="Gửi đánh giá" class="btn btn-primary px-3" id="submit-review">
                                             </div> --}}
                                             <button type="button" id="add-review-button" data-sach-id={{course._id}}  class="btn btn-block btn-primary font-weight-bold py-3 ">Gửi đánh giá</button>
+                                            <div id="error-message" class="text-danger"></div>
                                        
+
+                                            </script>
                                         {{!-- click đánh giá --}}
                                         <script>
                                             const addReviewButton = document.getElementById('add-review-button');
@@ -323,7 +330,12 @@
                                                 const fullName = document.getElementById('fullNameInput').value;
                                                 const message = document.getElementById('messageInput').value;
                                                 const courseid = addReviewButton.getAttribute('data-sach-id');
-   
+                                                
+                                                if (rating === '0' || fullName === '' || message === '') {
+                                                    alert('Vui lòng điền đầy đủ thông tin đánh giá');
+                                                    {{!-- document.getElementById('error-message').innerText = 'Vui lòng nhập đầy đủ thông tin đánh giá sách.'; --}}
+                                                    return; 
+                                                }
                                                 // Tạo một đối tượng dữ liệu FormData
                                                 const formData = {
                                                     "rating": rating,
@@ -342,8 +354,8 @@
                                                 })
                                                 .then(response => response.text())
                                                 .then(data => {
-                                                    alert(data);
-                                                    location.reload();
+                                                    alert("Gửi đánh giá");
+                                                    {{!-- location.reload(); --}}
                                                 })
                                                 .catch(error => {
                                                     console.error('Lỗi: ' + error);
